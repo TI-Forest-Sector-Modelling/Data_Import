@@ -1,0 +1,192 @@
+ID,Country,Continent,GFPM_CountryCode,modGFPM_CountryCode,ISO-Code,modISO_Code,ContinentofCountryOld,ContinentofCountry,Rest_of_Continent,ContinentCountryRestOfC,Main_RoW,Feld2,Mainover5ROWunder5,MainError,FAO Code,Aggregate,WEHAM,Jürgensen,REDD,FRA_Income,FRA_Domain,NYDoF,REDD1
+1,AFRICA,TRUE,--,x1,---,AFR,---,---,---,Continent ,Continent ,Continent,Continent ,AFR,,---,---,0,,,,0,0
+2,Algeria,FALSE,a0,a0,DZA,DZA,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,4,Rest Of AFR,Rest,0,,UM,Trp,0,0
+3,Angola,FALSE,a1,a1,AGO,AGO,AFR,AFR,Angola,Country ,Main_C+P_.95,,Rest of World,AGO,7,AFR,Rest,0,,UM,Trp,0,0
+4,Benin,FALSE,a2,a2,BEN,BEN,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,53,Rest Of AFR,Rest,1,REDD,L,Trp,0,1
+5,Botswana,FALSE,a3,a3,BWA,BWA,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,20,Rest Of AFR,Rest,0,,UM,Trp,0,0
+6,Burkina Faso,FALSE,a4,a4,BFA,BFA,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,BFA,233,AFR,Rest,0,,L,Trp,1,0
+7,Burundi,FALSE,a5,a5,BDI,BDI,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,BDI,29,AFR,Rest,1,,L,Trp,0,0
+8,Cameroon,FALSE,a6,a6,CMR,CMR,AFR,AFR,Cameroon,Country ,Main_C+P_.95,,Rest of World,CMR,32,AFR,WEHAM,1,REDD,LM,Trp,0,1
+9,Cape Verde,FALSE,a7,a7,CPV,CPV,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,35,Rest Of AFR,Rest,0,,LM,Trp,0,0
+10,Central African Republic,FALSE,a8,a8,CAF,CAF,AFR,AFR,Central African Republic,Country ,RoW ,,Rest of World,Rest Of AFR,37,Rest Of AFR,Rest,0,,L,Trp,0,0
+11,Chad,FALSE,a9,a9,TCD,TCD,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,39,Rest Of AFR,Rest,0,,L,Trp,0,0
+12,"Congo, Republic of",FALSE,b0,b0,COG,COG,AFR,AFR,"Congo, Republic of",Country ,RoW ,,Rest of World,Rest Of AFR,46,Rest Of AFR,Rest,1,REDD,LM,Trp,0,1
+13,Côte d'Ivoire,FALSE,b1,b1,CIV,CIV,AFR,AFR,Côte d'Ivoire,Country ,Main_C+P_.95,,Rest of World,CIV,107,AFR,WEHAM,1,REDD,LM,Trp,1,1
+14,Djibouti,FALSE,b2,b2,DJI,DJI,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,72,Rest Of AFR,Rest,0,,LM,Trp,0,0
+15,Egypt,FALSE,b3,b3,EGY,EGY,AFR,AFR,Egypt,Country ,Main_C+P_.95,,Rest of World,EGY,59,AFR,Rest,0,,LM,Trp,0,0
+16,Equatorial Guinea,FALSE,b4,b4,GNQ,GNQ,AFR,AFR,Equatorial Guinea,Country ,RoW ,,Rest of World,Rest Of AFR,61,Rest Of AFR,Rest,0,,H,Trp,0,0
+17,Ethiopia,FALSE,b5,b5,ETH,ETH,AFR,AFR,Ethiopia,Country ,Main_C+P_.95,,Main,ETH,238,AFR,Rest,1,REDD,L,Trp,1,1
+18,Gabon,FALSE,b6,b6,GAB,GAB,AFR,AFR,Gabon,Country ,Main_C+P_.95,,Rest of World,Rest Of AFR,74,Rest Of AFR,Rest,1,REDD,UM,Trp,0,1
+19,Gambia,FALSE,b7,b7,GMB,GMB,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,75,Rest Of AFR,Rest,0,,L,Trp,0,0
+20,Ghana,FALSE,b8,b8,GHA,GHA,AFR,AFR,Ghana,Country ,Main_C+P_.95,,Rest of World,GHA,81,AFR,WEHAM,1,REDD,LM,Trp,0,1
+21,Guinea,FALSE,b9,b9,GIN,GIN,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,GIN,90,AFR,Rest,0,,L,Trp,0,0
+22,Guinea-Bissau,FALSE,c0,c0,GNB,GNB,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,175,Rest Of AFR,Rest,0,,L,Trp,0,0
+23,Kenya,FALSE,c1,c1,KEN,KEN,AFR,AFR,Kenya,Country ,Main_C+P_.95,,Rest of World,KEN,114,AFR,Rest,1,REDD,L,Trp,1,1
+24,Lesotho,FALSE,c2,c2,LSO,LSO,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,122,Rest Of AFR,Rest,0,,LM,SubTrp,0,0
+25,Liberia,FALSE,c3,c3,LBR,LBR,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,123,Rest Of AFR,Rest,0,,L,Trp,1,0
+26,Libyan Arab Jamahiriya,FALSE,c4,c4,LBY,LBY,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,124,Rest Of AFR,Rest,0,,UM,Trp,0,0
+27,Madagascar,FALSE,c5,c5,MDG,MDG,AFR,AFR,Madagascar,Country ,Main_C+P_.95,,Rest of World,MDG,129,AFR,Rest,0,,L,Trp,0,0
+28,Malawi,FALSE,c6,c6,MWI,MWI,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,130,Rest Of AFR,Rest,1,REDD,L,Trp,0,1
+29,Mali,FALSE,c7,c7,MLI,MLI,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,133,Rest Of AFR,Rest,0,,L,Trp,0,0
+30,Mauritania,FALSE,c8,c8,MRT,MRT,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,136,Rest Of AFR,Rest,0,,LM,Trp,0,0
+31,Mauritius,FALSE,c9,c9,MUS,MUS,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,Rest Of AFR,137,Rest Of AFR,Rest,0,,UM,Trp,0,0
+32,Morocco,FALSE,d0,d0,MAR,MAR,AFR,AFR,Morocco,Country ,Main_C+P_.95,,Rest of World,Rest Of AFR,143,Rest Of AFR,Rest,1,REDD,LM,SubTrp,0,1
+33,Mozambique,FALSE,d1,d1,MOZ,MOZ,AFR,AFR,Mozambique,Country ,Main_C+P_.95,,Rest of World,MOZ,144,AFR,Rest,0,,L,Trp,0,0
+34,Niger,FALSE,d2,d2,NER,NER,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of AFR,158,Rest Of AFR,Rest,0,,L,Trp,0,0
+35,Nigeria,FALSE,d3,d3,NGA,NGA,AFR,AFR,Nigeria,Country ,Main_C+P_.95,,Rest of World,NGA,159,AFR,Rest,1,REDD,LM,Trp,1,1
+36,Réunion,FALSE,d4,d4,REU,REU,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,REU,182,AFR,Rest,0,,,Trp,0,0
+37,Rwanda,FALSE,d5,d5,RWA,RWA,AFR,AFR,Rwanda,Country ,Main_C+P_.95,,Rest of World,RWA,184,AFR,Rest,1,,L,Trp,0,0
+38,Sao Tome and Principe,FALSE,d6,d6,STP,STP,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,STP,193,AFR,Rest,0,,LM,Trp,0,0
+39,Senegal,FALSE,d7,d7,SEN,SEN,AFR,AFR,Senegal,Country ,Main_C+P_.95,,Rest of World,SEN,195,AFR,Rest,0,,LM,Trp,0,0
+40,Sierra Leone,FALSE,d8,d8,SLE,SLE,AFR,AFR,Sierra Leone,Country ,Main_C+P_.95,,Rest of World,SLE,197,AFR,Rest,0,,L,Trp,0,0
+41,Somalia,FALSE,d9,d9,SOM,SOM,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,SOM,201,AFR,Rest,0,,L,Trp,0,0
+42,South Africa,FALSE,e0,e0,ZAF,ZAF,AFR,AFR,South Africa,Country ,Main_C+P_.95,,Rest of World,ZAF,202,AFR,WEHAM,1,,UM,Trp,0,0
+43,Sudan,FALSE,e1,e1,SDN,SDN,AFR,AFR,RoAFR,RestOfContinent ,Main_C+P_.95,,Rest of World,SDN,276,AFR,Rest,0,,LM,Trp,0,0
+44,Swaziland,FALSE,e2,e2,SWZ,SWZ,AFR,AFR,RoAFR,RestOfContinent ,RoW ,,Rest of World,SWZ,209,AFR,Rest,1,,LM,Trp,0,0
+45,"Tanzania, United Rep of",FALSE,e3,e3,TZA,TZA,AFR,AFR,"Tanzania, United Rep of",Country ,Main_C+P_.95,,Rest of World,TZA,240,AFR,Rest,0,,L,Trp,0,0
+46,Togo,FALSE,e4,e4,TGO,TGO,AFR,AFR,Togo,Country ,Main_C+P_.95,,Rest of World,TGO,217,AFR,Rest,1,REDD,L,Trp,1,1
+47,Tunisia,FALSE,e5,e5,TUN,TUN,AFR,AFR,Tunisia,Country ,RoW ,,Rest of World,TUN,222,AFR,Rest,0,,UM,SubTrp,0,0
+48,Uganda,FALSE,e6,e6,UGA,UGA,AFR,AFR,Uganda,Country ,Main_C+P_.95,,Rest of World,UGA,226,AFR,Rest,1,REDD,L,Trp,0,1
+49,"Congo, Dem Republic of",FALSE,e7,e7,COD,COD,AFR,AFR,"Congo, Dem Republic of",Country ,Main_C+P_.95,,Rest of World,COD,250,AFR,Rest,0,,L,Trp,0,0
+50,Zambia,FALSE,e8,e8,ZMB,ZMB,AFR,AFR,Zambia,Country ,Main_C+P_.95,,Rest of World,ZMB,251,AFR,Rest,1,REDD,LM,Trp,0,1
+51,Zimbabwe,FALSE,e9,e9,ZWE,ZWE,AFR,AFR,Zimbabwe,Country ,Main_C+P_.95,,Rest of World,ZWE,181,AFR,Rest,1,REDD,L,Trp,0,1
+52,NORTH/CENTRAL AMERICA,TRUE,--,x2,---,NAM,---,---,---,Continent ,Continent ,,Continent ,NAM,,---,---,0,,,,0,0
+53,Bahamas,FALSE,f0,f0,BHS,BHS,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,12,Rest Of NAM,Rest,0,,H,Trp,0,0
+54,Barbados,FALSE,f1,f1,BRB,BRB,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,14,Rest Of NAM,Rest,0,,H,Trp,0,0
+55,Belize,FALSE,f2,f2,BLZ,BLZ,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,23,Rest Of NAM,Rest,0,,UM,Trp,0,0
+56,Canada,FALSE,f3,f3,CAN,CAN,NAM,NAM,Canada,Country ,Main_C+P_.95,,Main,CAN,33,NAM,WEHAM,1,,H,Bor,1,0
+57,Saint Lucia,FALSE,f4,f4,LCA,LCA,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,LCA,189,NAM,Rest,0,,UM,Trp,0,0
+58,Costa Rica,FALSE,f5,f5,CRI,CRI,NAM,NAM,Costa Rica,Country ,RoW ,,Rest of World,Rest Of NAM,48,Rest Of NAM,Rest,1,REDD,UM,Trp,1,1
+59,Cuba,FALSE,f6,f6,CUB,CUB,NAM,NAM,Cuba,Country ,RoW ,,Rest of World,Rest Of NAM,49,Rest Of NAM,Rest,1,,UM,Trp,0,0
+60,Dominica,FALSE,f7,f7,DMA,DMA,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,55,Rest Of NAM,Rest,0,,UM,Trp,0,0
+61,Dominican Republic,FALSE,f8,f8,DOM,DOM,NAM,NAM,Dominican Republic,Country ,RoW ,,Rest of World,Rest Of NAM,56,Rest Of NAM,Rest,0,,UM,Trp,1,0
+62,El Salvador,FALSE,f9,f9,SLV,SLV,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,60,Rest Of NAM,Rest,1,REDD,LM,Trp,0,1
+63,Guatemala,FALSE,g0,g0,GTM,GTM,NAM,NAM,Guatemala,Country ,Main_C+P_.95,,Rest of World,GTM,89,NAM,Rest,1,REDD,LM,Trp,0,1
+64,Haiti,FALSE,g1,g1,HTI,HTI,NAM,NAM,Haiti,Country ,RoW ,,Rest of World,Rest Of NAM,93,Rest Of NAM,Rest,0,,L,Trp,0,0
+65,Honduras,FALSE,g2,g2,HND,HND,NAM,NAM,Honduras,Country ,Main_C+P_.95,,Rest of World,HND,95,NAM,Rest,1,REDD,LM,Trp,0,1
+66,Jamaica,FALSE,g3,g3,JAM,JAM,NAM,NAM,Jamaica,Country ,RoW ,,Rest of World,Rest Of NAM,109,Rest Of NAM,Rest,0,,UM,Trp,0,0
+67,Martinique,FALSE,g4,g4,MTQ,MTQ,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,135,Rest Of NAM,Rest,0,,,Trp,0,0
+68,Mexico,FALSE,g5,g5,MEX,MEX,NAM,NAM,Mexico,Country ,Main_C+P_.95,,Rest of World,MEX,138,NAM,WEHAM,1,REDD,UM,SubTrp,1,1
+69,Netherlands Antilles,FALSE,g6,g6,ANT,ANT,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,Rest Of NAM,151,Rest Of NAM,Rest,0,,,Trp,0,0
+70,Nicaragua,FALSE,g7,g7,NIC,NIC,NAM,NAM,Nicaragua,Country ,Main_C+P_.95,,Rest of World,Rest Of NAM,157,Rest Of NAM,Rest,0,,LM,Trp,0,0
+71,Panama,FALSE,g8,g8,PAN,PAN,NAM,NAM,Panama,Country ,RoW ,,Rest of World,Rest Of NAM,166,Rest Of NAM,Rest,1,REDD,UM,Trp,1,1
+72,Saint Vincent/Grenadines,FALSE,g9,g9,VCT,VCT,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,VCT,191,NAM,Rest,0,,UM,Trp,0,0
+73,Trinidad and Tobago,FALSE,h0,h0,TTO,TTO,NAM,NAM,RoNAM,RestOfContinent ,RoW ,,Rest of World,TTO,220,NAM,Rest,1,,H,Trp,0,0
+74,United States of America,FALSE,h1,h1,USA,USA,NAM,NAM,United States of America,Country ,Main_C+P_.95,,Main,USA,231,NAM,WEHAM,1,,H,Temp,1,0
+75,SOUTH AMERICA,TRUE,--,x3,---,SAM,---,---,---,Continent ,Continent ,,Continent ,SAM,,---,---,0,,,,0,0
+76,Argentina,FALSE,h2,h2,ARG,ARG,SAM,SAM,Argentina,Country ,Main_C+P_.95,,Rest of World,ARG,9,SAM,Rest,1,REDD,UM,SubTrp,0,1
+77,Bolivia,FALSE,h3,h3,BOL,BOL,SAM,SAM,Bolivia,Country ,RoW ,,Rest of World,Rest Of SAM,19,Rest Of SAM,Rest,0,,LM,Trp,0,0
+78,Brazil,FALSE,h4,h4,BRA,BRA,SAM,SAM,Brazil,Country ,Main_C+P_.95,,Main,BRA,21,SAM,WEHAM,1,REDD,UM,Trp,1,1
+79,Chile,FALSE,h5,h5,CHL,CHL,SAM,SAM,Chile,Country ,Main_C+P_.95,,Rest of World,CHL,40,SAM,WEHAM,1,REDD,H,Temp,1,1
+80,Colombia,FALSE,h6,h6,COL,COL,SAM,SAM,Colombia,Country ,Main_C+P_.95,,Rest of World,COL,44,SAM,Rest,1,REDD,UM,Trp,1,1
+81,Ecuador,FALSE,h7,h7,ECU,ECU,SAM,SAM,Ecuador,Country ,Main_C+P_.95,,Rest of World,ECU,58,SAM,Rest,1,REDD,UM,Trp,1,1
+82,French Guiana,FALSE,h8,h8,GUF,GUF,SAM,SAM,French Guiana,Country ,RoW ,,Rest of World,Rest Of SAM,69,Rest Of SAM,Rest,0,,,Trp,0,0
+83,Guyana,FALSE,h9,h9,GUY,GUY,SAM,SAM,Guyana,Country ,RoW ,,Rest of World,Rest Of SAM,91,Rest Of SAM,Rest,0,,LM,Trp,1,0
+84,Paraguay,FALSE,i0,i0,PRY,PRY,SAM,SAM,Paraguay,Country ,Main_C+P_.95,,Rest of World,Rest Of SAM,169,Rest Of SAM,Rest,1,REDD,LM,Trp,0,1
+85,Peru,FALSE,i1,i1,PER,PER,SAM,SAM,Peru,Country ,Main_C+P_.95,,Rest of World,Rest Of SAM,170,Rest Of SAM,Rest,1,REDD,UM,Trp,1,1
+86,Suriname,FALSE,i2,i2,SUR,SUR,SAM,SAM,Suriname,Country ,RoW ,,Rest of World,SUR,207,SAM,Rest,1,REDD,UM,Trp,0,1
+87,Uruguay,FALSE,i3,i3,URY,URY,SAM,SAM,Uruguay,Country ,Main_C+P_.95,,Rest of World,URY,234,SAM,WEHAM,1,,H,Trp,0,0
+88,"Venezuela, Boliv Rep of",FALSE,i4,i4,VEN,VEN,SAM,SAM,"Venezuela, Boliv Rep of",Country ,Main_C+P_.95,,Rest of World,VEN,236,SAM,Rest,1,,UM,Trp,0,0
+89,ASIA,TRUE,--,x4,---,ASI,---,---,---,Continent ,Continent ,,Continent ,ASI,,---,---,0,,,,0,0
+90,Afghanistan,FALSE,i5,i5,AFG,AFG,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of ASI,2,Rest Of ASI,Rest,0,,L,SubTrp,0,0
+91,Bahrain,FALSE,i6,i6,BHR,BHR,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,13,Rest Of ASI,Rest,0,,H,SubTrp,0,0
+92,Bangladesh,FALSE,i7,i7,BGD,BGD,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,BGD,16,ASI,Rest,1,REDD,L,Trp,0,1
+93,Bhutan,FALSE,i8,i8,BTN,BTN,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of ASI,18,Rest Of ASI,Rest,0,,LM,Trp,0,0
+94,Brunei Darussalam,FALSE,i9,i9,BRN,BRN,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,26,Rest Of ASI,Rest,0,,H,Trp,0,0
+95,Cambodia,FALSE,j0,j0,KHM,KHM,ASI,ASI,Cambodia,Country ,Main_C+P_.95,,Rest of World,KHM,115,ASI,Rest,0,,L,Trp,0,0
+96,China,FALSE,j1,j1,CHN,CHN,ASI,ASI,China,Country ,Main_C+P_.95,,Main,CHN,351,ASI,WEHAM,1,,UM,Temp,0,0
+97,Cyprus,FALSE,j2,j2,CYP,CYP,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,50,Rest Of ASI,Rest,0,,H,SubTrp,0,0
+98,Maldives,FALSE,j3,j3,MDV,MDV,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,134,Rest Of ASI,Rest,0,,UM,Trp,0,0
+99,India,FALSE,j4,j4,IND,IND,ASI,ASI,India,Country ,Main_C+P_.95,,Main,IND,100,ASI,WEHAM,1,REDD,LM,Trp,0,1
+100,Indonesia,FALSE,j5,j5,IDN,IDN,ASI,ASI,Indonesia,Country ,Main_C+P_.95,,Main,IDN,101,ASI,WEHAM,1,REDD,LM,Trp,1,1
+101,"Iran, Islamic Rep of",FALSE,j6,j6,IRN,IRN,ASI,ASI,"Iran, Islamic Rep of",Country ,Main_C+P_.95,,Rest of World,Rest Of ASI,102,Rest Of ASI,Rest,1,,UM,SubTrp,0,0
+102,Iraq,FALSE,j7,j7,IRQ,IRQ,ASI,ASI,Iraq,Country ,RoW ,,Rest of World,Rest Of ASI,103,Rest Of ASI,Rest,0,,UM,SubTrp,0,0
+103,Israel,FALSE,j8,j8,ISR,ISR,ASI,ASI,Israel,Country ,Main_C+P_.95,,Rest of World,Rest Of ASI,105,Rest Of ASI,Rest,0,,H,SubTrp,0,0
+104,Japan,FALSE,j9,j9,JPN,JPN,ASI,ASI,Japan,Country ,Main_C+P_.95,,Main,JPN,110,ASI,WEHAM,1,,H,SubTrp,1,0
+105,Jordan,FALSE,k0,k0,JOR,JOR,ASI,ASI,Jordan,Country ,RoW ,,Rest of World,Rest Of ASI,112,Rest Of ASI,Rest,0,,UM,SubTrp,0,0
+106,"Korea, Dem People's Rep",FALSE,k1,k1,PRK,PRK,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of ASI,116,Rest Of ASI,Rest,0,,H,Temp,0,0
+107,"Korea, Republic of",FALSE,k2,k2,KOR,KOR,ASI,ASI,"Korea, Republic of",Country ,Main_C+P_.95,,Rest of World,KOR,117,ASI,Rest,1,,H,Temp,1,0
+108,Kuwait,FALSE,k3,k3,KWT,KWT,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,118,Rest Of ASI,Rest,0,,H,SubTrp,0,0
+109,Laos,FALSE,k4,k4,LAO,LAO,ASI,ASI,Laos,Country ,Main_C+P_.95,,Rest of World,Rest Of ASI,120,Rest Of ASI,Rest,1,REDD,LM,Trp,0,1
+110,Lebanon,FALSE,k5,k5,LBN,LBN,ASI,ASI,Lebanon,Country ,RoW ,,Rest of World,Rest Of ASI,121,Rest Of ASI,Rest,0,,UM,SubTrp,0,0
+111,Timor-Leste,FALSE,k6,k6,TLS,TLS,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,TLS,176,ASI,Rest,0,,LM,Trp,0,0
+112,Malaysia,FALSE,k7,k7,MYS,MYS,ASI,ASI,Malaysia,Country ,Main_C+P_.95,,Rest of World,MYS,131,ASI,WEHAM,1,REDD,UM,Trp,0,1
+113,Mongolia,FALSE,k8,k8,MNG,MNG,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,141,Rest Of ASI,Rest,0,,LM,Temp,1,0
+114,Myanmar,FALSE,k9,k9,MMR,MMR,ASI,ASI,Myanmar,Country ,Main_C+P_.95,,Rest of World,MMR,28,ASI,Rest,1,REDD,L,Trp,0,1
+115,Nepal,FALSE,l0,l0,NPL,NPL,ASI,ASI,Nepal,Country ,Main_C+P_.95,,Rest of World,NPL,149,ASI,Rest,0,,L,SubTrp,1,0
+116,Oman,FALSE,l1,l1,OMN,OMN,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,Rest Of ASI,221,Rest Of ASI,Rest,0,,H,Trp,0,0
+117,Pakistan,FALSE,l2,l2,PAK,PAK,ASI,ASI,Pakistan,Country ,Main_C+P_.95,,Rest of World,PAK,165,ASI,Rest,0,,LM,SubTrp,0,0
+118,Philippines,FALSE,l3,l3,PHL,PHL,ASI,ASI,Philippines,Country ,Main_C+P_.95,,Rest of World,PHL,171,ASI,Rest,1,REDD,LM,Trp,1,1
+119,Qatar,FALSE,l4,l4,QAT,QAT,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,QAT,179,ASI,Rest,0,,H,SubTrp,0,0
+120,Saudi Arabia,FALSE,l5,l5,SAU,SAU,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,SAU,194,ASI,Rest,0,,H,Trp,0,0
+121,Singapore,FALSE,l6,l6,SGP,SGP,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,SGP,200,ASI,Rest,0,,H,Trp,0,0
+122,Sri Lanka,FALSE,l7,l7,LKA,LKA,ASI,ASI,Sri Lanka,Country ,Main_C+P_.95,,Rest of World,LKA,38,ASI,Rest,1,REDD,LM,Trp,0,1
+123,Syrian Arab Republic,FALSE,l8,l8,SYR,SYR,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,SYR,212,ASI,Rest,0,,LM,SubTrp,0,0
+124,Thailand,FALSE,l9,l9,THA,THA,ASI,ASI,Thailand,Country ,Main_C+P_.95,,Rest of World,THA,216,ASI,Rest,1,,UM,Trp,0,0
+125,Turkey,FALSE,m0,m0,TUR,TUR,ASI,ASI,Turkey,Country ,Main_C+P_.95,,Rest of World,TUR,223,ASI,Rest,1,,UM,SubTrp,0,0
+126,United Arab Emirates,FALSE,m1,m1,ARE,ARE,ASI,ASI,RoASI,RestOfContinent ,Main_C+P_.95,,Rest of World,ARE,225,ASI,Rest,0,,H,Trp,0,0
+127,Viet Nam,FALSE,m2,m2,VNM,VNM,ASI,ASI,Viet Nam,Country ,Main_C+P_.95,,Rest of World,VNM,237,ASI,WEHAM,1,REDD,LM,Trp,1,1
+128,Yemen,FALSE,m3,m3,YEM,YEM,ASI,ASI,RoASI,RestOfContinent ,RoW ,,Rest of World,YEM,249,ASI,Rest,0,,LM,Trp,0,0
+129,OCEANIA,TRUE,--,x5,---,OCE,---,---,---,Continent ,Continent ,,Continent ,OCE,,---,---,0,,,,0,0
+130,Australia,FALSE,m4,m4,AUS,AUS,OCE,OCE,Australia,Country ,Main_C+P_.95,,Rest of World,AUS,10,OCE,WEHAM,1,,H,SubTrp,0,0
+131,Cook Islands,FALSE,m5,m5,COK,COK,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,Rest Of OCE,47,Rest Of OCE,Rest,0,,,Trp,0,0
+132,Fiji Islands,FALSE,m6,m6,FJI,FJI,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,Rest Of OCE,66,Rest Of OCE,Rest,1,REDD,UM,Trp,0,1
+133,French Polynesia,FALSE,m7,m7,PYF,PYF,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,Rest Of OCE,70,Rest Of OCE,Rest,0,,H,Trp,0,0
+134,New Caledonia,FALSE,m8,m8,NCL,NCL,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,Rest Of OCE,153,Rest Of OCE,Rest,0,,H,Trp,0,0
+135,New Zealand,FALSE,m9,m9,NZL,NZL,OCE,OCE,New Zealand,Country ,Main_C+P_.95,,Main,NZL,156,OCE,WEHAM,1,,H,Temp,0,0
+136,Papua New Guinea,FALSE,n0,n0,PNG,PNG,OCE,OCE,Papua New Guinea,Country ,Main_C+P_.95,,Rest of World,Rest Of OCE,168,Rest Of OCE,Rest,1,REDD,LM,Trp,0,1
+137,Samoa,FALSE,n1,n1,WSM,WSM,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,WSM,244,OCE,Rest,0,,LM,Trp,0,0
+138,Solomon Islands,FALSE,n2,n2,SLB,SLB,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,SLB,25,OCE,Rest,1,REDD,LM,Trp,0,1
+139,Tonga,FALSE,n3,n3,TON,TON,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,TON,219,OCE,Rest,0,,UM,Trp,0,0
+140,Vanuatu,FALSE,n4,n4,VUT,VUT,OCE,OCE,RoOCE,RestOfContinent ,RoW ,,Rest of World,VUT,155,OCE,Rest,0,,LM,Trp,0,0
+141,EUROPE,TRUE,--,x6,---,EUR,---,---,---,Continent ,Continent ,,Continent ,EUR,,---,---,0,,,,0,0
+142,Albania,FALSE,n5,n5,ALB,ALB,EUR,EUR,RoEUR,RestOfContinent ,RoW ,,Rest of World,Rest Of EUR,3,Rest Of EUR,Rest,0,,UM,SubTrp,0,0
+143,Austria,FALSE,n6,n6,AUT,AUT,EUR,EUR,Austria,Country ,Main_C+P_.95,,Rest of World,AUT,11,EUR,WEHAM,0,,H,Temp,0,0
+144,Belgium,FALSE,n7,n7,BEL,BEL,EUR,EUR,RoEUR,RestOfContinent ,Main_C+P_.95,,Rest of World,BEL,255,EUR,Rest,1,,H,Temp,1,0
+145,Bosnia and Herzegovina,FALSE,n8,n8,BIH,BIH,EUR,EUR,RoEUR,RestOfContinent ,RoW ,,Rest of World,Rest Of EUR,80,Rest Of EUR,Rest,0,,UM,Temp,0,0
+146,Bulgaria,FALSE,n9,n9,BGR,BGR,EUR,EUR,Bulgaria,Country ,Main_C+P_.95,,Rest of World,Rest Of EUR,27,Rest Of EUR,Rest,1,,UM,Temp,0,0
+147,Croatia,FALSE,o0,o0,HRV,HRV,EUR,EUR,RoEUR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of EUR,98,Rest Of EUR,Rest,1,,H,Temp,0,0
+148,Czech Republic,FALSE,o1,o1,CZE,CZE,EUR,EUR,Czech Republic,Country ,Main_C+P_.95,,Rest of World,Rest Of EUR,167,Rest Of EUR,WEHAM,1,,H,Temp,0,0
+149,Denmark,FALSE,o2,o2,DNK,DNK,EUR,EUR,Denmark,Country ,Main_C+P_.95,,Rest of World,DNK,54,EUR,Rest,1,,H,Temp,1,0
+150,Finland,FALSE,o3,o3,FIN,FIN,EUR,EUR,Finland,Country ,Main_C+P_.95,,Main,FIN,67,EUR,WEHAM,1,,H,Bor,0,0
+151,France,FALSE,o4,o4,FRA,FRA,EUR,EUR,France,Country ,Main_C+P_.95,,Rest of World,FRA,68,EUR,WEHAM,1,,H,Temp,1,0
+152,Germany,FALSE,o5,o5,DEU,DEU,EUR,EUR,Germany,Country ,Main_C+P_.95,,Main,DEU,79,EUR,WEHAM,1,,H,Temp,1,0
+153,Greece,FALSE,o6,o6,GRC,GRC,EUR,EUR,RoEUR,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of EUR,84,Rest Of EUR,Rest,0,,H,SubTrp,0,0
+154,Hungary,FALSE,o7,o7,HUN,HUN,EUR,EUR,Hungary,Country ,Main_C+P_.95,,Rest of World,Rest Of EUR,97,Rest Of EUR,Rest,1,,UM,Temp,0,0
+155,Luxembourg,FALSE,o8,o8,LUX,LUX,EUR,EUR,RoEUR,RestOfContinent ,RoW ,,Rest of World,Rest Of EUR,256,Rest Of EUR,Rest,0,,H,Temp,0,0
+156,Ireland,FALSE,o9,o9,IRL,IRL,EUR,EUR,Ireland,Country ,RoW ,,Rest of World,Rest Of EUR,104,Rest Of EUR,Rest,1,,H,Temp,0,0
+157,Italy,FALSE,p0,p0,ITA,ITA,EUR,EUR,RoEUR,RestOfContinent ,Main_C+P_.95,,Rest of World,ITA,106,EUR,WEHAM,1,,H,SubTrp,0,0
+158,"Macedonia,The Fmr Yug Rp",FALSE,p1,p1,MKD,MKD,EUR,EUR,RoEUR,RestOfContinent ,RoW ,,Rest of World,Rest Of EUR,154,Rest Of EUR,Rest,0,,UM,Temp,0,0
+159,Montenegro,FALSE,p2,p2,MNE,MNE,EUR,EUR,RoEUR,RestOfContinent ,RoW ,,Rest of World,Rest Of EUR,273,Rest Of EUR,Rest,0,,UM,SubTrp,0,0
+160,Netherlands,FALSE,p3,p3,NLD,NLD,EUR,EUR,Netherlands,Country ,Main_C+P_.95,,Rest of World,NLD,150,EUR,WEHAM,0,,H,Temp,1,0
+161,Norway,FALSE,p4,p4,NOR,NOR,EUR,EUR,Norway,Country ,Main_C+P_.95,,Rest of World,NOR,162,EUR,Rest,1,,H,Bor,1,0
+162,Poland,FALSE,p5,p5,POL,POL,EUR,EUR,Poland,Country ,Main_C+P_.95,,Main,POL,173,EUR,WEHAM,1,,H,Temp,0,0
+163,Portugal,FALSE,p6,p6,PRT,PRT,EUR,EUR,Portugal,Country ,Main_C+P_.95,,Rest of World,PRT,174,EUR,Rest,1,,H,SubTrp,0,0
+164,Romania,FALSE,p7,p7,ROU,ROU,EUR,EUR,Romania,Country ,Main_C+P_.95,,Rest of World,ROU,183,EUR,Rest,1,,UM,Temp,0,0
+165,Slovakia,FALSE,p8,p8,SVK,SVK,EUR,EUR,Slovakia,Country ,Main_C+P_.95,,Rest of World,SVK,199,EUR,Rest,0,,H,Temp,0,0
+166,Slovenia,FALSE,p9,p9,SVN,SVN,EUR,EUR,RoEUR,RestOfContinent ,RoW ,,Rest of World,SVN,198,EUR,Rest,0,,H,Temp,1,0
+167,Spain,FALSE,q0,q0,ESP,ESP,EUR,EUR,Spain,Country ,Main_C+P_.95,,Main,ESP,203,EUR,Rest,1,,H,SubTrp,1,0
+168,Sweden,FALSE,q1,q1,SWE,SWE,EUR,EUR,Sweden,Country ,Main_C+P_.95,,Main,SWE,210,EUR,WEHAM,1,,H,Bor,0,0
+169,Switzerland,FALSE,q2,q2,CHE,CHE,EUR,EUR,Switzerland,Country ,Main_C+P_.95,,Rest of World,CHE,211,EUR,WEHAM,0,,H,Temp,0,0
+170,United Kingdom,FALSE,q3,q3,GBR,GBR,EUR,EUR,United Kingdom,Country ,Main_C+P_.95,,Main,GBR,229,EUR,WEHAM,1,,H,Temp,1,0
+171,Serbia,FALSE,q4,q4,SRB,SRB,EUR,EUR,RoEUR,RestOfContinent ,Main_C+P_.95,,Rest of World,SRB,272,EUR,Rest,1,,UM,Temp,0,0
+172,FORMER USSR,TRUE,--,x7,---,FSU,---,---,---,Continent ,Continent ,,Continent ,FSU,,---,---,0,,,,0,0
+173,Armenia,FALSE,q5,q5,ARM,ARM,FSU,ASI,RoFSU,RestOfContinent ,RoW ,,Rest of World,Rest Of FSU,1,Rest Of FSU,Rest,0,,LM,SubTrp,0,0
+174,"Azerbaijan, Republic of",FALSE,q6,q6,AZE,AZE,FSU,ASI,RoFSU,RestOfContinent ,RoW ,,Rest of World,Rest Of FSU,52,Rest Of FSU,Rest,0,,UM,Temp,0,0
+175,Belarus,FALSE,q7,q7,BLR,BLR,FSU,EUR,Belarus,Country ,Main_C+P_.95,,Rest of World,BLR,57,FSU,Rest,1,,UM,Temp,0,0
+176,Estonia,FALSE,q8,q8,EST,EST,FSU,EUR,Estonia,Country ,Main_C+P_.95,,Rest of World,Rest Of FSU,63,Rest Of FSU,Rest,1,,H,Temp,1,0
+177,Georgia,FALSE,q9,q9,GEO,GEO,FSU,EUR,RoFSU,RestOfContinent ,RoW ,,Rest of World,Rest Of FSU,73,Rest Of FSU,Rest,0,,LM,SubTrp,0,0
+178,Kazakhstan,FALSE,r0,r0,KAZ,KAZ,FSU,ASI,RoFSU,RestOfContinent ,Main_C+P_.95,,Rest of World,Rest Of FSU,108,Rest Of FSU,Rest,0,,UM,Temp,0,0
+179,Kyrgyzstan,FALSE,r1,r1,KGZ,KGZ,FSU,ASI,RoFSU,RestOfContinent ,RoW ,,Rest of World,Rest Of FSU,113,Rest Of FSU,Rest,0,,LM,Temp,0,0
+180,Latvia,FALSE,r2,r2,LVA,LVA,FSU,EUR,Latvia,Country ,Main_C+P_.95,,Rest of World,Rest Of FSU,119,Rest Of FSU,Rest,1,,H,Temp,0,0
+181,Lithuania,FALSE,r3,r3,LTU,LTU,FSU,EUR,Lithuania,Country ,Main_C+P_.95,,Rest of World,Rest Of FSU,126,Rest Of FSU,Rest,0,,H,Temp,1,0
+182,"Moldova, Republic of",FALSE,r4,r4,MDA,MDA,FSU,EUR,RoFSU,RestOfContinent ,RoW ,,Rest of World,Rest Of FSU,146,Rest Of FSU,Rest,0,,LM,Temp,0,0
+183,Russian Federation,FALSE,r5,r5,RUS,RUS,FSU,EUR,Russian Federation,Country ,Main_C+P_.95,,Main,RUS,185,FSU,WEHAM,1,,H,Bor,0,0
+184,Tajikistan,FALSE,r6,r6,TJK,TJK,FSU,ASI,RoFSU,RestOfContinent ,RoW ,,Rest of World,TJK,208,FSU,Rest,0,,L,Temp,0,0
+185,Turkmenistan,FALSE,r7,r7,TKM,TKM,FSU,ASI,RoFSU,RestOfContinent ,RoW ,,Rest of World,TKM,213,FSU,Rest,0,,UM,Temp,0,0
+186,Ukraine,FALSE,r8,r8,UKR,UKR,FSU,EUR,Ukraine,Country ,Main_C+P_.95,,Rest of World,UKR,230,FSU,Rest,1,,LM,Temp,0,0
+187,Uzbekistan,FALSE,r9,r9,UZB,UZB,FSU,ASI,RoFSU,RestOfContinent ,Main_C+P_.95,,Rest of World,UZB,235,FSU,Rest,1,,LM,Temp,0,0
+188,"DEVELOPED, ALL",TRUE,--,y1,---,DDC,---,---,---,Continent ,Continent ,,Continent ,DDC,,---,---,0,,,,0,0
+189,"DEVELOPING, ALL",TRUE,--,y2,---,DGC,---,---,---,Continent ,Continent ,,Continent ,DGC,,---,---,0,,,,0,0
+190,WORLD,TRUE,--,z1,---,WOR,---,---,---,Continent ,Continent ,,Continent ,WOR,,---,---,0,,,,0,0
+191,ROW,TRUE,zy,zy,ROW,ROW,ROW,ROW,ROW,,,,,,9999,,,,,,,,
