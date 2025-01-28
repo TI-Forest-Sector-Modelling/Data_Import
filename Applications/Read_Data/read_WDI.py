@@ -11,12 +11,13 @@ class WDIDataProcessor:
         self.output_path = output_path
 
     def reformat_wdi_data(self, data: pd.DataFrame) -> pd.DataFrame:
-        data.iloc[:, 0:4] = data.iloc[:, 0:4].astype("category")
+        for col in data.columns[:4]:
+            data[col] = data[col].astype("category")
         data = data.rename(columns={"Country Name": "Country_Name",
                                     "Country Code": "Country_Code",
                                     "Indicator Name": "Indicator_Name",
                                     "Indicator Code": "Indicator_Code"})
-        data.iloc[:, 4:] = data.iloc[:, 4:].astype("float32")
+        data.iloc[:, 4:] = data.iloc[:, 4:].apply(pd.to_numeric, downcast="float", errors="coerce")
         return data
 
     def vectorize_dataset(self, data: pd.DataFrame) -> pd.DataFrame:
@@ -53,15 +54,15 @@ class WDIDataProcessor:
         ], axis=1)
 
         data_reformatted.columns = ["Country","WDI_ISO3", "Indicator","Indicator_Code", "Year", "Value"]
-        data_reformatted = data_reformatted["WDI_ISO3", "Indicator_Code", "Year", "Value"]
+        data_reformatted = data_reformatted[["WDI_ISO3", "Indicator_Code", "Year", "Value"]]
         return data_reformatted
 
     def downcast_data(self, data: pd.DataFrame) -> pd.DataFrame:
-        data.WDI_ISO3 = data.WDI_ISO3.astype("category")
-        data.Indicator_Code = data.Indicator_Code.astype("category")
-        data.Value = data.Value.astype("float32")
+        data["WDI_ISO3"] = data["WDI_ISO3"].astype("category")
+        data["Indicator_Code"] = data["Indicator_Code"].astype("category")
+        data["Value"] = pd.to_numeric(data["Value"], downcast="float", errors="coerce")
         data = data.dropna()
-        data.Year = data.Year.astype("int16")
+        data["Year"] = pd.to_numeric(data["Year"], downcast="integer", errors="coerce")
         return data
 
     def main_process(self, file_name: str = "WDI_DATA_as_vector") -> None:

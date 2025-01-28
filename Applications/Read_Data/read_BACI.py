@@ -6,7 +6,6 @@ import time
 from itertools import product
 import matplotlib.pyplot as plt
 from enum import Enum
-import datatable as dt
 import pyarrow
 import fastparquet
 from pathlib import Path
