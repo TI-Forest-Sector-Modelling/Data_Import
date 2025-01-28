@@ -20,6 +20,15 @@ class ProcessManager:
         os.chdir(path)
         print(f"Process started at {path}")
 
+    def read_original_data(self, input_path):
+        try:
+            data = pd.read_csv(input_path, encoding="latin-1")
+            print("Data read successfully!")
+        except FileNotFoundError:
+            print(f"No data found in directory! Please ensure the file exists at: {input_path}")
+            raise
+        return data
+
     def replace_na(self, data: pd.DataFrame) -> pd.DataFrame:
         data.replace([np.inf, -np.inf], np.nan, inplace=True)
         data.fillna(0, inplace=True)

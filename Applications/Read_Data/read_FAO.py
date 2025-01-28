@@ -11,14 +11,6 @@ class FAODataProcessor:
         self.output_path = Path(output_path)
         self.data = None
 
-    def read_original_data(self):
-        try:
-            self.data = pd.read_csv(self.input_path, encoding="latin-1")
-            print("Data read successfully!")
-        except FileNotFoundError:
-            print(f"No data found in directory! Please ensure the file exists at: {self.input_path}")
-            raise
-
     def reformat_data(self):
         if self.data is None:
             raise ValueError("No data to reformat. Please run `read_original_data` first.")
@@ -94,7 +86,7 @@ class FAODataProcessor:
         print(f"Data saved to {output_file}")
 
     def process(self):
-        self.read_original_data()
+        self.data = pm.read_original_data(input_path=self.input_path)
         self.reformat_data()
         self.save_reformatted_data()
 
