@@ -46,17 +46,3 @@ class ProcessManager:
         elapsed_time = round(end_time - self.start_time, 2)
         print("Process completed!")
         print(f"--- {elapsed_time} seconds ---")
-
-
-# Example usage:
-if __name__ == "__main__":
-    manager = ProcessManager()
-
-    # Example DataFrame
-    df = pd.DataFrame({"A": [1, 2, np.nan], "B": [np.inf, 5, -np.inf]})
-
-    # Process Workflow
-    manager.start_process(new_path=False)
-    df_cleaned = manager.replace_na(df)
-    manager.save_result(df_cleaned, path="./output", file_name="cleaned_data")
-    manager.end_process()
