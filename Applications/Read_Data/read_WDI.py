@@ -60,9 +60,9 @@ class WDIDataProcessor:
     def downcast_data(self, data: pd.DataFrame) -> pd.DataFrame:
         data["WDI_ISO3"] = data["WDI_ISO3"].astype("category")
         data["Indicator_Code"] = data["Indicator_Code"].astype("category")
-        data["Value"] = pd.to_numeric(data["Value"], downcast="float", errors="coerce")
+        data.loc[:, "Year"] = pd.to_numeric(data["Year"], downcast="integer", errors="coerce")
+        data.loc[:, "Value"] = pd.to_numeric(data["Value"], downcast="float", errors="coerce")
         data = data.dropna()
-        data["Year"] = pd.to_numeric(data["Year"], downcast="integer", errors="coerce")
         return data
 
     def main_process(self, file_name: str = "WDI_DATA_as_vector") -> None:
