@@ -202,6 +202,18 @@ dissolving_wood_pulp = {
     "fao_code": 1667, 
     "hs02_codes": [470200]}
 
+cellulose_chemical_derivatives = {
+    "name": "Cellulose and its chemical derivatives",
+    "jq_code_02": "...",
+    "fao_code": 166701, 
+    "hs02_codes": [391211,391212,391220,391231,391239]}
+
+textil_fibres = {
+    "name": "Textil fibres: artificial filaments yarn and man made stable fibres",
+    "jq_code_02": "...",
+    "fao_code": 166702, 
+    "hs02_codes": [540310,540331,540332,540333,540341,540342,550410]}
+
 other_fibre_pulp = {
     "name": "Pulp from fibres other than wood",
     "jq_code_02": "8.1",
@@ -349,7 +361,8 @@ commodity_list = [roundwood,roundwood_coniferous,roundwood_non_coniferous,woodfu
                     printing_writing_papers_uncoated_mechanical,printing_writing_papers_uncoated_woodfree,
                     printing_writing_papers_coated,household_sanitary_papers,
                     wrapping_packaging_paper_paperboard,case_materials,cartonboard,
-                    wrapping_papers,other_papers_packaging,other_paper_paperboard]												
+                    wrapping_papers,other_papers_packaging,other_paper_paperboard,
+                    cellulose_chemical_derivatives,textil_fibres]												
 
 
 
