@@ -18,7 +18,6 @@ class BACIProcessor:
         self.add_country_info = self.pm.read_original_data(input_path=country_file)
         self.add_country_info = self.add_country_info[["country_code","country_iso3"]]
         self.country_dict = dict(zip(self.add_country_info["country_code"], self.add_country_info["country_iso3"]))
-        print(self.country_dict)
 
     def iso_codes_to_data(self) -> pd.DataFrame:
         self.data['Reporter_Code'] = self.data['Reporter_Code'].map(self.country_dict).fillna(self.data['Reporter_Code'])
@@ -26,7 +25,7 @@ class BACIProcessor:
 
     def build_commodity_list(self) -> list:
         flat_commodity_list = [code for entry in commodity_list if isinstance(entry.get('hs02_codes', None), list) for code in entry['hs02_codes']]
-        return list(set(flat_commodity_list))  # Remove duplicates
+        return list(set(flat_commodity_list)) 
 
     def read_baci_data(self) -> None:
         csv_files = [f for f in os.listdir(self.input_path) if f.endswith('.csv')]
@@ -39,8 +38,6 @@ class BACIProcessor:
 
             df = self.pm.read_original_data(input_path=input_file_path)
             df = df[df["k"].isin(flat_commodity_list)]  # Filter by commodity list
-
-            print(f"Data points in {file}: {len(df)}")
             dataframes.append(df)
 
         self.data = pd.concat(dataframes, ignore_index=True)
