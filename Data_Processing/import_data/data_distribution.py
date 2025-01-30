@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from Applications.import_data.import_data import DataProcessor
+from Data_Processing.import_data.import_data import DataProcessor
 
 class DataImporter:
     def __init__(self, file_list:list, output_folder=None):

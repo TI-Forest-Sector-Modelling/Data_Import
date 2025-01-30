@@ -1,9 +1,9 @@
 from pathlib import Path
 import pandas as pd
-from Applications.import_data.data_distribution import DataImporter
+from Data_Processing.import_data.data_distribution import DataImporter
 from Input.Dictionaries.fao_codes import element_dict
 from Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
-from Applications.Read_Data.ProcessManager import ProcessManager
+from Data_Processing.Read_Data.ProcessManager import ProcessManager
 
 
 class query_armington:
@@ -43,7 +43,7 @@ class query_armington:
                                   right_on=['Year', 'Area_Code', 'Item_Code'],
                                   how='left')
         
-        armington_data.drop(columns=['Area_Code', 'Item_Code','Export_Quantity','Export_Value'], inplace=True)
+        armington_data.drop(columns=['Area_Code', 'Item_Code'], inplace=True)
         return armington_data
 
     def main_process(self):

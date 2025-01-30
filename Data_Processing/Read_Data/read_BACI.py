@@ -3,7 +3,7 @@ import numpy as np
 import os
 from tqdm import tqdm
 from pathlib import Path
-from Applications.Read_Data.ProcessManager import ProcessManager
+from Data_Processing.Read_Data.ProcessManager import ProcessManager
 from Input.Dictionaries.hscodes import commodity_list
 
 class BACIProcessor:

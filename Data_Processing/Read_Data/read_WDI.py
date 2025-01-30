@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 from pathlib import Path
-from Applications.Read_Data.ProcessManager import ProcessManager
+from Data_Processing.Read_Data.ProcessManager import ProcessManager
 pm = ProcessManager()
 
 class WDIDataProcessor:
