@@ -1,27 +1,69 @@
-import pandas as pd
 from pathlib import Path
+import pandas as pd
 from Applications.import_data.data_distribution import DataImporter
+from Input.Dictionaries.fao_codes import element_dict
+from Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
+from Applications.Read_Data.ProcessManager import ProcessManager
 
-def data_import(file_list:list):
-    importer = DataImporter(file_list=file_list)
-    results = importer.main_process()
-    return results
 
-file_list = ["BACI_DATA_as_vector.parquet",
-             "FAO_DATA_as_vector.parquet",
-             "WDI_DATA_as_vector.parquet"]
+class query_armington:
+    def __init__(self, commodity_list:list):
+        self.pm = ProcessManager(commodity_list=commodity_list)
+        self.ADD_INFO_PATH = Path(__file__).parent.parent / "Input/additional_info"
+        self.file_list = ["BACI_DATA_as_vector.parquet",
+                          "FAO_DATA_as_vector.parquet",
+                          "WDI_DATA_as_vector.parquet"]
 
-data_dict = data_import(file_list=file_list)
+    def data_import(self):
+        importer = DataImporter(file_list=self.file_list)
+        return importer.main_process()
 
-fao_data = data_dict["FAO_data"]
-print(fao_data.Element_Code.unique())
-# def read_add_info(self, country_file_name:str="Country_Master"):
-#     country_file= self.add_input_path / f"{country_file_name}.csv"
-#     self.add_country_info = pm.read_original_data(input_path=country_file)
-#     self.add_country_info = self.add_country_info[["FAO Code","ISO-Code"]]
-#     self.country_dict = dict(zip(self.add_country_info["FAO Code"], self.add_country_info["ISO-Code"]))
+    def process_fao_data(self, fao_data, country_dict, hs_to_fao_code_dict, element_dict):
+        fao_data = fao_data.reset_index(drop=True)
+        fao_data = self.pm.replace_column_data_with_dict(data=fao_data, mapping_dict=country_dict)
 
-# def iso_codes_to_data(self) -> pd.DataFrame:
-#     print(self.data)
-#     self.data['Area_Code'] = self.data['Area_Code'].map(self.country_dict).fillna(self.data['Area_Code'])
+        value_list = list(set(hs_to_fao_code_dict.values()))
+        fao_data = fao_data[fao_data["Item_Code"].isin(value_list)].reset_index(drop=True)
 
+        fao_data = self.pm.replace_column_data_with_dict(data=fao_data, mapping_dict=element_dict, column_name="Element_Code")
+        fao_data = fao_data.pivot(index=['Area_Code', 'Item_Code', 'Year'], columns='Element_Code', values='Value')
+        return fao_data.reset_index().fillna(0)
+
+    def process_baci_data(self, baci_data, hs_to_fao_code_dict):
+        baci_data = baci_data.reset_index(drop=True)
+        baci_data = self.pm.replace_column_data_with_dict(data=baci_data, mapping_dict=hs_to_fao_code_dict, column_name="HSCode")
+
+        baci_data = baci_data[baci_data["HSCode"] <= 2000].reset_index(drop=True)
+        aggregated_baci_data = baci_data.groupby(['Year', 'Reporter_Code', 'Partner_Code', 'HSCode'], as_index=False).sum()
+        return aggregated_baci_data
+
+    def merge_data(self, aggregated_baci_data, processed_fao_data):
+        armington_data = pd.merge(aggregated_baci_data, processed_fao_data,
+                                  left_on=['Year', 'Reporter_Code', 'HSCode'],
+                                  right_on=['Year', 'Area_Code', 'Item_Code'],
+                                  how='left')
+        
+        armington_data.drop(columns=['Area_Code', 'Item_Code','Export_Quantity','Export_Value'], inplace=True)
+        return armington_data
+
+    def main_process(self):
+        data_dict = self.data_import()
+
+        country_dict = self.pm.read_additional_info(add_input_path=self.ADD_INFO_PATH)
+        hs_to_fao_code_dict = self.pm.hs_to_fao_dict()
+
+        processed_fao_data = self.process_fao_data(data_dict["FAO_data"], 
+                                                   country_dict, 
+                                                   hs_to_fao_code_dict, 
+                                                   element_dict)
+        
+        aggregated_baci_data = self.process_baci_data(data_dict["BAC_data"], hs_to_fao_code_dict)
+        armington_data = self.merge_data(aggregated_baci_data, processed_fao_data)
+        print(armington_data)
+        OUTPUT_PATH = Path(__file__).parent.parent / "Output"
+        self.pm.save_result(path=OUTPUT_PATH, data=armington_data,file_name="armington_data")
+
+
+if __name__ == "__main__":
+    pipeline = query_armington(commodity_list=aggregated_commodity_list)
+    pipeline.main_process()

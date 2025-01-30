@@ -37,7 +37,7 @@ class BACIProcessor:
             print(f"Reading data file: {file}")
 
             df = self.pm.read_original_data(input_path=input_file_path)
-            df = df[df["k"].isin(flat_commodity_list)]  # Filter by commodity list
+            df = df[df["k"].isin(flat_commodity_list)]
             dataframes.append(df)
 
         self.data = pd.concat(dataframes, ignore_index=True)

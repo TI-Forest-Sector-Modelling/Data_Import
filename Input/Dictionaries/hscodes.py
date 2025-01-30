@@ -362,7 +362,15 @@ commodity_list = [roundwood,roundwood_coniferous,roundwood_non_coniferous,woodfu
                     printing_writing_papers_coated,household_sanitary_papers,
                     wrapping_packaging_paper_paperboard,case_materials,cartonboard,
                     wrapping_papers,other_papers_packaging,other_paper_paperboard,
-                    cellulose_chemical_derivatives,textil_fibres]												
+                    cellulose_chemical_derivatives,textil_fibres]
+
+aggregated_commodity_list=[roundwood,sawnwood,wood_based_panels,paper_paperboard]	
+
+timba_commodity_list = [woodfuel,industrial_roundwood_coniferous,industrial_roundwood_non_coniferous,
+                        other_industrial_roundwood,sawnwood_coniferous,sawnwood_non_coniferous,
+                        veneer_sheets,plywood,particle_board,fibreboard,mechanical_wood_pulp,
+                        semi_chemical_wood_pulp,chemical_wood_pulp,dissolving_wood_pulp,
+                        newsprint,printing_writing_papers,other_paper_paperboard]
 
 
 
