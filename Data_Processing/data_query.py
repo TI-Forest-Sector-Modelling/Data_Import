@@ -5,7 +5,6 @@ from Input.Dictionaries.fao_codes import element_dict
 from Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
 from Data_Processing.Read_Data.ProcessManager import ProcessManager
 
-
 class query_armington:
     def __init__(self, commodity_list:list):
         self.pm = ProcessManager(commodity_list=commodity_list)
@@ -65,5 +64,5 @@ class query_armington:
 
 
 if __name__ == "__main__":
-    pipeline = query_armington(commodity_list=aggregated_commodity_list)
-    pipeline.main_process()
+    qa = query_armington(commodity_list=timba_commodity_list)
+    qa.main_process()

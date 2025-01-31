@@ -18,7 +18,7 @@ class ProcessManager:
         else:
             path = os.path.abspath(os.getcwd())
         os.chdir(path)
-        print(f"Process started at {path}")
+        print(f"Process started...")
 
     def read_original_data(self, input_path):
         try:
