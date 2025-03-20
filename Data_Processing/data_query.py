@@ -38,7 +38,7 @@ class query_armington:
 
     def merge_data(self, aggregated_baci_data, processed_fao_data):
         armington_data = pd.merge(aggregated_baci_data, processed_fao_data,
-                                  left_on=['Year', 'Reporter_Code', 'HSCode'],
+                                  left_on=['Year', 'Partner_Code', 'HSCode'],
                                   right_on=['Year', 'Area_Code', 'Item_Code'],
                                   how='left')
         
@@ -58,6 +58,9 @@ class query_armington:
         
         aggregated_baci_data = self.process_baci_data(data_dict["BAC_data"], hs_to_fao_code_dict)
         armington_data = self.merge_data(aggregated_baci_data, processed_fao_data)
+        print(armington_data)
+        armington_data.columns =['Year', 'Partner_Code', 'Reporter_Code', 'HSCode', 'Value', 'Quantity',
+                                 'Export_Quantity', 'Export_Value', 'Import_Quantity', 'Import_Value','Production']
         print(armington_data)
         OUTPUT_PATH = Path(__file__).parent.parent / "Output"
         self.pm.save_result(path=OUTPUT_PATH, data=armington_data,file_name="armington_data")

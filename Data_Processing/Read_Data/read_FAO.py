@@ -75,15 +75,25 @@ class FAODataProcessor:
         if self.data is None:
             raise ValueError("No data to save. Please process the data first.")
         
+        pivoted_df = self.data[["Area","Area_Code","Item","Item_Code", "Element_Code", "Year", "Value"]]
+        self.data = self.data[["Area_Code","Item_Code", "Element_Code", "Year", "Value"]]
+        
         self.data["Area_Code"] = self.data["Area_Code"].astype("int64", copy=False)
         self.data["Item_Code"] = self.data["Item_Code"].astype("int64", copy=False)
         self.data["Year"] = self.data["Year"].astype("int64", copy=False)
 
-        self.data = self.data[["Area_Code", "Item_Code", "Element_Code", "Year", "Value"]]
-
         output_file = self.output_path / f"{file_name}.csv"
         pm.save_result(self.data, path=str(self.output_path), file_name=file_name)
         print(f"Data saved to {output_file}")
+
+        pivoted_df = pivoted_df.pivot(index=["Area", "Area_Code", "Item", "Item_Code", "Year"],
+                      columns="Element_Code",
+                      values="Value")
+        pivoted_df = pivoted_df.reset_index()
+        pivoted_df.columns = pivoted_df.columns.astype("str")
+        output_file_GFPM_cali = self.output_path / "FAO_DATA_as_GFPM_Calibration_Input.csv"
+        pm.save_result(pivoted_df, path=str(self.output_path), file_name="FAO_DATA_as_GFPM_Calibration_Input")
+        print(f"Data saved to {output_file_GFPM_cali}")
 
     def process(self):
         self.data = pm.read_original_data(input_path=self.input_path)
