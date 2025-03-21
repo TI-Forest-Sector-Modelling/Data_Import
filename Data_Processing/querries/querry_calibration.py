@@ -23,6 +23,9 @@ class query_calibration_input:
         fao_data = fao_data[["Area","Area_Code","Item","Item_Code",
                              "Year","Production","Import Quantity",
                              "Import Value","Export Quantity","Export Value"]]
+        fao_data["Year"]=fao_data["Year"].astype("int")
+        fao_data = fao_data[fao_data["Year"]>=1992]
+        fao_data=fao_data.sort_values(by=['Year', 'Area_Code'], ascending=[False, True])
         return fao_data
     
     def output_path_generator(self):
