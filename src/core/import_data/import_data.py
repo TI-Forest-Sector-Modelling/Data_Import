@@ -7,7 +7,7 @@ from src.core.processes.ProcessManager import ProcessManager
 from src.core.processes.read_BACI import BACIProcessor
 from src.core.processes.read_FAO import FAODataProcessor
 from src.core.processes.read_WDI import WDIDataProcessor
-from Input.paths.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE
+from Input.path_names.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 

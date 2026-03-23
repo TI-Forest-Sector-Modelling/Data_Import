@@ -2,19 +2,8 @@ import requests
 import zipfile
 from pathlib import Path
 import shutil
-
-url_faostat = "https://bulks-faostat.fao.org/production/Forestry_E_All_Data.zip"
-faostat_bulk_name = "faostat_data_bulk.zip"
-url_fra = (
-    "https://fra-data.fao.org/api/file/bulk-download"
-    "?assessmentName=fra"
-    "&countryIso=WO"
-    "&cycleName=2025"
-    "&includeClimaticDomain=undefined"
-)
-fra_bulk_name = "fra_data_bulk.zip"
-zip_path = Path("Zip_Files/")
-data_path = "data/"
+from src.Input.path_names.paths import url_faostat, url_fra, zip_path, data_path
+from src.Input.parameters.user_input import fra_bulk_name, faostat_bulk_name
 
 class DataDownload:
     def __init__(self, zip_path, url, bulk_name):

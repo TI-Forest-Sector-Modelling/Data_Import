@@ -3,7 +3,6 @@
 __pycache__/
 src/Output/
 src/Data/
-/src/core/Zip_files/
 *.py[cod]
 *$py.class
 test/.pytest_cache/
