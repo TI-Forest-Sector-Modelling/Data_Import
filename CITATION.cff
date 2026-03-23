@@ -1,0 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: TiMBA (Timber market Model for policy-Based Analysis)
+message: >-
+type: software
+authors:
+  - given-names: Christian
+    family-names: Morland
+    email: christian.morland@thuenen.de
+    affiliation: Thünen Institue of Forestry
+    orcid: 'https://orcid.org/0000-0001-6600-570X'
+identifiers:
+  - type: doi
+    value: ''
+    description: ''
+repository-code: ''
+abstract: |-
+keywords:
+license: AGPL-3.0-or-later
+version: 0.0.0
+date-released: ''
