@@ -2,29 +2,25 @@ import requests
 import zipfile
 from pathlib import Path
 import shutil
-from src.Input.path_names.paths import (
-    url_faostat, 
-    url_fra, 
-    url_wdi,
-    zip_path, 
-    data_path,
-)
-from src.Input.parameters.user_input import (
-    fra_bulk_name, 
-    faostat_bulk_name,
-    wdi_bulk_name,
-)
+import src.Input.path_names.paths as paths
+import src.Input.parameters.user_input as bulks
+
+bulk_dict={
+    bulks.wdi_bulk_name:paths.url_wdi,
+    bulks.faostat_bulk_name:paths.url_faostat,
+    bulks.fra_bulk_name:paths.url_fra,
+    bulks.baci_bulk_name:paths.url_baciHS02,
+}
 
 class DataDownload:
-    def __init__(self, zip_path, url, bulk_name):
-        self.zip_path = Path(zip_path)
+    def __init__(self, url, bulk_name):
         self.url = url
         self.bulk_name = bulk_name
     
     def download(self):
-        self.zip_path.mkdir(parents=True, exist_ok=True)
+        paths.zip_path.mkdir(parents=True, exist_ok=True)
 
-        self.output_path = self.zip_path / Path(self.bulk_name)
+        self.output_path = paths.zip_path / Path(self.bulk_name)
 
         response = requests.get(self.url, stream=True)
         response.raise_for_status()
@@ -36,7 +32,7 @@ class DataDownload:
         print(f"{self.bulk_name} download is finished!")
 
     def extract_zip(self):
-        extraction_path = Path(data_path + self.bulk_name[:-4])
+        extraction_path = Path(paths.data_path + self.bulk_name[:-4])
         extraction_path.mkdir(parents=True, exist_ok=True)
         with zipfile.ZipFile(self.output_path, 'r') as zip_ref:
             zip_ref.extractall(extraction_path)
@@ -53,24 +49,10 @@ class DataDownload:
         self.cleanup()
 
 if __name__ == "__main__":
-    fao_dd = DataDownload(
-        zip_path=zip_path, 
-        url=url_faostat,
-        bulk_name=faostat_bulk_name
-    )
-    fao_dd.main()
-
-    fra_dd = DataDownload(
-        zip_path=zip_path, 
-        url=url_fra,
-        bulk_name=fra_bulk_name
-    )
-    fra_dd.main()
-
-    wdi_dd = DataDownload(
-        zip_path=zip_path, 
-        url=url_wdi,
-        bulk_name=wdi_bulk_name
-    )
-    wdi_dd.main()
+    for bulk, url in bulk_dict.items():
+        dd = DataDownload(
+            url=url,
+            bulk_name=bulk
+        )
+        dd.main()
     
