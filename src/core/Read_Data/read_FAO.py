@@ -2,7 +2,7 @@ import pandas as pd
 from tqdm import tqdm
 from pathlib import Path
 import os
-from Data_Processing.Read_Data.ProcessManager import ProcessManager
+from src.core.Read_Data.ProcessManager import ProcessManager
 pm = ProcessManager()
 
 class FAODataProcessor:
@@ -51,14 +51,39 @@ class FAODataProcessor:
 
         print("\nConcatenate reformatted Lists")
         reformatted_data = pd.concat(
-            [pd.DataFrame(temp_list_info), pd.DataFrame(temp_list_year), pd.DataFrame(temp_list_values)], axis=1
+            [
+                pd.DataFrame(temp_list_info), 
+                pd.DataFrame(temp_list_year), 
+                pd.DataFrame(temp_list_values)
+            ], 
+            axis=1
         )
 
-        col_names = ["Area_Code","Area_Code_M49","Area","Item_Code","Item","Element_Code","Element","Unit",
-                     "Year","Value"]
+        col_names = [
+            "Area_Code",
+            "Area_Code_M49",
+            "Area",
+            "Item_Code",
+            "Item",
+            "Element_Code",
+            "Element",
+            "Unit",
+            "Year",
+            "Value"
+        ]
+        
         reformatted_data.columns = col_names
-        reformatted_data = reformatted_data[["Area_Code", "Area", "Item_Code", "Item", "Element_Code", 
-                                             "Element", "Unit", "Year", "Value"]]
+        reformatted_data = reformatted_data[[
+            "Area_Code", 
+            "Area", 
+            "Item_Code", 
+            "Item", 
+            "Element_Code", 
+            "Element", 
+            "Unit", 
+            "Year", 
+            "Value"
+        ]]
 
         flag_data = pd.DataFrame(reformatted_data[reformatted_data["Year"].str[-1:] == "F"].Value)
         flag_data.columns = ["Flags"]

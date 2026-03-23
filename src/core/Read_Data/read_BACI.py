@@ -3,8 +3,8 @@ import numpy as np
 import os
 from tqdm import tqdm
 from pathlib import Path
-from Data_Processing.Read_Data.ProcessManager import ProcessManager
-from Input.Dictionaries.hscodes import commodity_list
+from src.core.Read_Data.ProcessManager import ProcessManager
+from src.Input.Dictionaries.hscodes import commodity_list
 
 class BACIProcessor:
     def __init__(self, input_path: str, output_path: str, add_info_path:str):

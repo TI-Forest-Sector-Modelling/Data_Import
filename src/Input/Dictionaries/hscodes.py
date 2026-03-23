@@ -144,7 +144,7 @@ plywood = {
 particle_board = {
     "name": "Particle board and OSB",
     "jq_code_02": "6.3",
-    "fao_code": 1646, 
+    "fao_code": 1697, 
     "hs02_codes": [441031,441032,441033,441039,441090,441021,441029]}
 
 fibreboard = {

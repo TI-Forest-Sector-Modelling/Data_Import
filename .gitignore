@@ -1,7 +1,9 @@
 .idea/
 .vscode/
 __pycache__/
-/Output/
+src/Output/
+src/Data/
+/src/core/Zip_files/
 *.py[cod]
 *$py.class
 test/.pytest_cache/

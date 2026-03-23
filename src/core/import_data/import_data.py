@@ -3,10 +3,10 @@ import numpy as np
 import logging
 from tqdm import tqdm
 from pathlib import Path
-from Data_Processing.Read_Data.ProcessManager import ProcessManager
-from Data_Processing.Read_Data.read_BACI import BACIProcessor
-from Data_Processing.Read_Data.read_FAO import FAODataProcessor
-from Data_Processing.Read_Data.read_WDI import WDIDataProcessor
+from src.core.Read_Data.ProcessManager import ProcessManager
+from src.core.Read_Data.read_BACI import BACIProcessor
+from src.core.Read_Data.read_FAO import FAODataProcessor
+from src.core.Read_Data.read_WDI import WDIDataProcessor
 from Input.paths.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")

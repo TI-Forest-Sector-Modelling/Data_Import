@@ -1,9 +1,9 @@
 from pathlib import Path
 import pandas as pd
-from Data_Processing.import_data.data_distribution import DataImporter
-from Input.Dictionaries.fao_codes import element_dict
-from Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
-from Data_Processing.Read_Data.ProcessManager import ProcessManager
+from src.core.import_data.data_distribution import DataImporter
+from src.Input.Dictionaries.fao_codes import element_dict
+from src.Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
+from src.core.Read_Data.ProcessManager import ProcessManager
 
 class query_armington:
     def __init__(self, commodity_list:list):
