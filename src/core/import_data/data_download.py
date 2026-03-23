@@ -2,8 +2,18 @@ import requests
 import zipfile
 from pathlib import Path
 import shutil
-from src.Input.path_names.paths import url_faostat, url_fra, zip_path, data_path
-from src.Input.parameters.user_input import fra_bulk_name, faostat_bulk_name
+from src.Input.path_names.paths import (
+    url_faostat, 
+    url_fra, 
+    url_wdi,
+    zip_path, 
+    data_path,
+)
+from src.Input.parameters.user_input import (
+    fra_bulk_name, 
+    faostat_bulk_name,
+    wdi_bulk_name,
+)
 
 class DataDownload:
     def __init__(self, zip_path, url, bulk_name):
@@ -56,4 +66,11 @@ if __name__ == "__main__":
         bulk_name=fra_bulk_name
     )
     fra_dd.main()
+
+    wdi_dd = DataDownload(
+        zip_path=zip_path, 
+        url=url_wdi,
+        bulk_name=wdi_bulk_name
+    )
+    wdi_dd.main()
     
