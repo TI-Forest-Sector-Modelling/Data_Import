@@ -5,7 +5,7 @@ from src.core.import_data.import_data import DataProcessor
 class DataImporter:
     def __init__(self, file_list:list, output_folder=None):
         self.file_list = file_list
-        self.output_folder = output_folder or Path(__file__).parent.parent.parent / "Output"
+        self.output_folder = output_folder
 
     def import_data(self, file_name):
         file_path = self.output_folder / file_name

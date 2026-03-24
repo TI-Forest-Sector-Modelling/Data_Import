@@ -18,6 +18,10 @@ class DataDownload:
         self.bulk_name = bulk_name
     
     def download(self):
+        """
+        Download the file from the given URL and save it locally.
+        """
+        print(f"Beginn to download: {self.bulk_name}")
         paths.zip_path.mkdir(parents=True, exist_ok=True)
 
         self.output_path = paths.zip_path / Path(self.bulk_name)
@@ -32,6 +36,9 @@ class DataDownload:
         print(f"{self.bulk_name} download is finished!")
 
     def extract_zip(self):
+        """
+        Extract the downloaded ZIP file to the target directory.
+        """
         extraction_path = Path(paths.data_path + self.bulk_name[:-4])
         extraction_path.mkdir(parents=True, exist_ok=True)
         with zipfile.ZipFile(self.output_path, 'r') as zip_ref:
@@ -40,10 +47,16 @@ class DataDownload:
         print(f"{self.bulk_name} is extracted!")
     
     def cleanup(self):
+        """
+        Remove the downloaded ZIP file after extraction.
+        """
         if self.output_path.exists():
             self.output_path.unlink()
     
     def main(self):
+        """
+        Execute full workflow: download, extract, and clean up.
+        """
         self.download()
         self.extract_zip()
         self.cleanup()

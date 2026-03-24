@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 from src.core.import_data.data_distribution import DataImporter
-from Input.Dictionaries.gfpm_input_file_codes import input_codes
+from src.Input.Dictionaries.gfpm_input_file_codes import input_codes
 
 class query_calibration_input:
     def __init__(self):

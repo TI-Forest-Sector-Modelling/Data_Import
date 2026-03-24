@@ -1,7 +1,7 @@
 from src.core.querries.querry_calibration import query_calibration_input
 from src.core.querries.querry_armington import query_armington
 from src.core.import_data.data_download import DataDownload, bulk_dict
-from Input.Dictionaries.hscodes import timba_commodity_list
+from src.Input.Dictionaries.hscodes import timba_commodity_list
 
 def data_download():
     for bulk, url in bulk_dict.items():

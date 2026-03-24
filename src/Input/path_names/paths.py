@@ -18,3 +18,6 @@ url_fra = (
 
 zip_path = Path("src/data/Zip_Files/")
 data_path = "src/data/"
+
+add_info_path = "Input/additional_info"
+output_path = "Output"

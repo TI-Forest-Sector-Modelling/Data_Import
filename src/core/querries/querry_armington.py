@@ -3,12 +3,13 @@ import pandas as pd
 from src.core.import_data.data_distribution import DataImporter
 from src.Input.Dictionaries.fao_codes import element_dict
 from src.Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
+from src.Input.path_names.paths import output_path, add_info_path
 from src.core.processes.ProcessManager import ProcessManager
 
 class query_armington:
     def __init__(self, commodity_list:list):
         self.pm = ProcessManager(commodity_list=commodity_list)
-        self.ADD_INFO_PATH = Path(__file__).parent.parent.parent / "Input/additional_info"
+        self.ADD_INFO_PATH = Path(__file__).parent.parent / add_info_path
         self.file_list = [
             "BACI_DATA_as_vector.parquet",
             "FAO_DATA_as_vector.parquet",
@@ -140,7 +141,7 @@ class query_armington:
         - Merge results
         - Save final dataset
         """
-        
+
         data_dict = self.data_import()
 
         country_dict = self.pm.read_additional_info(
@@ -179,8 +180,12 @@ class query_armington:
             'Production'
         ]
 
-        OUTPUT_PATH = Path(__file__).parent.parent.parent / "Output"
-        self.pm.save_result(path=OUTPUT_PATH, data=armington_data,file_name="armington_data")
+        OUTPUT_PATH = Path(__file__).parent.parent / output_path
+        self.pm.save_result(
+            path=OUTPUT_PATH, 
+            data=armington_data,
+            file_name="armington_data"
+        )
 
 if __name__ == "__main__":
     qa = query_armington(
