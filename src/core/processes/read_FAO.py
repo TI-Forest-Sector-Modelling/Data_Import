@@ -128,7 +128,7 @@ class FAODataProcessor:
 
 if __name__ == "__main__":
     INPUTPATH = r"E:\Data_Official_Reports\FAOStat\Forestry_E_All_Data.csv"
-    OUTPUTPATH = Path(__file__).parent.parent.parent / "Output"
+    OUTPUTPATH = Path(__file__).parent.parent / "Output"
 
     processor = FAODataProcessor(input_path=INPUTPATH, output_path=str(OUTPUTPATH))
     processor.process()

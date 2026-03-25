@@ -4,13 +4,17 @@ from src.core.import_data.data_distribution import DataImporter
 from src.Input.Dictionaries.gfpm_input_file_codes import input_codes
 
 class query_calibration_input:
-    def __init__(self):
-        self.ADD_INFO_PATH = Path(__file__).parent.parent.parent / "Input/additional_info"
+    def __init__(self, output_path: Path, add_info_path: Path):
+        self.ADD_INFO_PATH = add_info_path
+        self.output_path = output_path
         self.file_list = ["FAO_DATA_as_GFPM_Calibration_Input.parquet",
                           "WDI_DATA_as_vector.parquet"]
 
     def data_import(self):
-        importer = DataImporter(file_list=self.file_list)
+        importer = DataImporter(
+            file_list=self.file_list,
+            output_folder=self.output_path
+        )
         return importer.main_process()
 
     def process_fao_data(self, fao_data):
@@ -28,7 +32,6 @@ class query_calibration_input:
         return fao_data
     
     def output_path_generator(self):
-        self.output_path = Path(__file__).parent.parent.parent / "Output" / "Calibration_Data"
         if not self.output_path.exists():
             self.output_path.mkdir(parents=True, exist_ok=True)
 
@@ -53,22 +56,43 @@ class query_calibration_input:
             "new_base": "GDP deflator (base 2023)"
         })
         us_deflator["Country Name"] = us_deflator["Country Code"]
-        us_deflator=us_deflator[["Time Name","Country Name","Country Code","GDP deflator (base 2015)","GDP deflator (base 2023)"]]
-        us_deflator.to_excel(self.output_path / "GDPDeflatorUS.xlsx", index=False)
+        us_deflator=us_deflator[[
+            "Time Name",
+            "Country Name",
+            "Country Code",
+            "GDP deflator (base 2015)",
+            "GDP deflator (base 2023)"
+        ]]
+
+        us_deflator.to_excel(
+            self.output_path / "GDPDeflatorUS.xlsx", 
+            index=False
+        )
+
         print("saved", "GDPDeflatorUS.xlsx")
 
     def gdp_population_table(self,data:pd.DataFrame):
         self.output_path_generator()
-        wdi_filter = ["NY.GDP.MKTP.CD","SP.POP.TOTL"]
+        wdi_filter = [
+            "NY.GDP.MKTP.CD",
+            "SP.POP.TOTL"
+        ]
+
         gdppop = data[data["Indicator_Code"].isin(wdi_filter)].reset_index(drop=True)
-        gdppop = gdppop.pivot(index=["WDI_ISO3", "Year"], columns="Indicator_Code", values="Value")
+        gdppop = gdppop.pivot(
+            index=["WDI_ISO3", "Year"], 
+            columns="Indicator_Code", 
+            values="Value"
+        )
         gdppop=gdppop.reset_index()
+
         gdppop = gdppop.rename(columns={
             "WDI_ISO3": "Country Code",
             "Year": "Time Name",
             "NY.GDP.MKTP.CD": "GDP (current US$)",
             "SP.POP.TOTL": "Population, total"
         })
+
         gdppop["Country Name"] = gdppop["Country Code"]
         gdppop=gdppop[["Time Name","Country Name","Country Code","GDP (current US$)","Population, total"]]
         gdppop.to_excel(self.output_path / "GDPPopulation.xlsx", index=False) 

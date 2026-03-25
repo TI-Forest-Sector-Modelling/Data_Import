@@ -8,7 +8,9 @@ class DataImporter:
         self.output_folder = output_folder
 
     def import_data(self, file_name):
-        file_path = self.output_folder / file_name
+        print(self.output_folder)
+        print(file_name)
+        file_path = self.output_folder / Path(file_name)
         print(f"Checking file: {file_path}")
 
         if file_path.exists():

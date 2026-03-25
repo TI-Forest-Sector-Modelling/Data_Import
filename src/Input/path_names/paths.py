@@ -19,5 +19,8 @@ url_fra = (
 zip_path = Path("src/data/Zip_Files/")
 data_path = "src/data/"
 
+fao_download_path = r"data\faostat_data_bulk\Forestry_E_All_Data.csv"
+wdi_download_path = r"data\wdi_data_bulk\WDICSV.csv"
 add_info_path = "Input/additional_info"
 output_path = "Output"
+folder_calibration_data = "Calibration_Data"

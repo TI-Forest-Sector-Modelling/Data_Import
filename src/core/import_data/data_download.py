@@ -9,7 +9,7 @@ bulk_dict={
     bulks.wdi_bulk_name:paths.url_wdi,
     bulks.faostat_bulk_name:paths.url_faostat,
     bulks.fra_bulk_name:paths.url_fra,
-    bulks.baci_bulk_name:paths.url_baciHS02,
+    #bulks.baci_bulk_name:paths.url_baciHS02,
 }
 
 class DataDownload:
