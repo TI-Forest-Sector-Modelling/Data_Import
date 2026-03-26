@@ -4,11 +4,25 @@ from tqdm import tqdm
 from pathlib import Path
 from src.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
+import requests
+from datetime import datetime
 
 class WDIDataProcessor:
     def __init__(self, input_path: str, output_path: str):
         self.input_path = input_path
         self.output_path = output_path
+
+    def check_wdi_updates(self):
+        url_gdp = "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json"
+        url_pop = "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json"
+        indicator_list = [url_gdp,url_pop]
+        last_updated_list = []
+        for url in indicator_list:
+            data = requests.get(url).json()
+            last_updated_list += [data[0]["lastupdated"]]
+        dates_dt = [datetime.strptime(d, "%Y-%m-%d") for d in last_updated_list]
+        latest = max(dates_dt)
+        print("WDI:", latest)
 
     def reformat_wdi_data(self, data: pd.DataFrame) -> pd.DataFrame:
         for col in data.columns[:4]:

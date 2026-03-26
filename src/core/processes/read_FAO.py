@@ -4,12 +4,27 @@ from pathlib import Path
 import os
 from src.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
+import requests
+import xml.etree.ElementTree as ET
 
 class FAODataProcessor:
     def __init__(self, input_path: str, output_path: str):
         self.input_path = input_path
         self.output_path = Path(output_path)
         self.data = None
+
+    def check_fao_updates(self):
+        url = "http://fenixservices.fao.org/faostat/static/bulkdownloads/datasets_E.xml"
+        
+        response = requests.get(url)
+        root = ET.fromstring(response.content)
+
+        for dataset in root.findall(".//Dataset"):
+            code = dataset.find("DatasetCode").text
+            name = dataset.find("DatasetName").text
+            update = dataset.find("DateUpdate").text
+            if code =="FO":
+                print("FAOStat", name, update)
 
     def reformat_data(self):
         if self.data is None:

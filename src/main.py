@@ -5,6 +5,7 @@ from src.Input.Dictionaries.hscodes import timba_commodity_list
 from src.core.processes.ProcessManager import ProcessManager
 from src.core.processes.read_FAO import FAODataProcessor
 from src.core.processes.read_WDI import WDIDataProcessor
+from src.core.processes.read_BACI import BACIProcessor
 from src.Input.path_names.paths import output_path, fao_download_path, wdi_download_path , add_info_path, folder_calibration_data
 from pathlib import Path
 
@@ -63,10 +64,19 @@ def armington_data():
     qa.main_process()
     pm.end_process()
 
+def check_version():
+    wdp = WDIDataProcessor(input_path="",output_path="")
+    wdp.check_wdi_updates()
+    fdp = FAODataProcessor(input_path="",output_path="")
+    fdp.check_fao_updates()
+    bdp = BACIProcessor(input_path="",output_path="",add_info_path="")
+    bdp.check_baci_version()
+
 
 if __name__ == "__main__":
-    data_download()
-    read_fao_data()
-    read_wdi_data()
-    calibration_data()
+    check_version()
+    #data_download()
+    #read_fao_data()
+    #read_wdi_data()
+    #calibration_data()
     #armington_data()

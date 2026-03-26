@@ -24,3 +24,5 @@ wdi_download_path = r"data\wdi_data_bulk\WDICSV.csv"
 add_info_path = "Input/additional_info"
 output_path = "Output"
 folder_calibration_data = "Calibration_Data"
+
+metadata_path = "data/metadata.json"

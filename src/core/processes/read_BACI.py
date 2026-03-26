@@ -5,6 +5,10 @@ from tqdm import tqdm
 from pathlib import Path
 from src.core.processes.ProcessManager import ProcessManager
 from src.Input.Dictionaries.hscodes import commodity_list
+import requests
+from bs4 import BeautifulSoup
+import re
+from datetime import datetime
 
 class BACIProcessor:
     def __init__(self, input_path: str, output_path: str, add_info_path:str):
@@ -12,6 +16,20 @@ class BACIProcessor:
         self.output_path = output_path
         self.add_info_path = add_info_path
         self.pm = ProcessManager()
+
+    def check_baci_version(self):
+        url = "https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37"
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, "html.parser")
+        text = soup.get_text()
+        match = re.search(r"Last update:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})", text)
+
+        if match:
+            date_str = match.group(1)
+            last_update = datetime.strptime(date_str, "%B %d, %Y")
+            print("BACI:", last_update.date())
+        else:
+            print("No update date found!")
 
     def read_add_info(self, country_file_name:str="baci_country_codes"):
         country_file= self.add_info_path / f"{country_file_name}.csv"
