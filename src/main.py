@@ -6,7 +6,8 @@ from src.core.processes.ProcessManager import ProcessManager
 from src.core.processes.read_FAO import FAODataProcessor
 from src.core.processes.read_WDI import WDIDataProcessor
 from src.core.processes.read_BACI import BACIProcessor
-from src.Input.path_names.paths import output_path, fao_download_path, wdi_download_path , add_info_path, folder_calibration_data
+import src.Input.path_names.paths as p
+from src.core.processes.build_metadata import MetadataManager
 from pathlib import Path
 from datetime import datetime
 
@@ -24,8 +25,8 @@ def data_download():
 
 def read_fao_data():
     pm.start_process()
-    INPUTPATH = Path(__file__).parent  / fao_download_path
-    OUTPUTPATH = Path(__file__).parent / output_path
+    INPUTPATH = Path(__file__).parent  / p.fao_download_path
+    OUTPUTPATH = Path(__file__).parent / p.output_path
     print(INPUTPATH)
     print(OUTPUTPATH)
     fdp = FAODataProcessor(
@@ -37,8 +38,8 @@ def read_fao_data():
 
 def read_wdi_data():
     pm.start_process()
-    INPUTPATH = Path(__file__).parent  / wdi_download_path
-    OUTPUTPATH = Path(__file__).parent / output_path
+    INPUTPATH = Path(__file__).parent  / p.wdi_download_path
+    OUTPUTPATH = Path(__file__).parent / p.output_path
     wdp = WDIDataProcessor(
         input_path=INPUTPATH, 
         output_path=str(OUTPUTPATH)
@@ -48,8 +49,8 @@ def read_wdi_data():
 
 def calibration_data():
     pm.start_process()
-    ADD_INFO_PATH = Path(__file__).parent / add_info_path
-    OUTPUTPATH = Path(__file__).parent / output_path / folder_calibration_data
+    ADD_INFO_PATH = Path(__file__).parent / p.add_info_path
+    OUTPUTPATH = Path(__file__).parent / p.output_path / p.folder_calibration_data
     qc = query_calibration_input(
         output_path=OUTPUTPATH,
         add_info_path=ADD_INFO_PATH,
@@ -70,42 +71,57 @@ def check_version():
     wdi_latest = WDIDataProcessor().check_wdi_updates()
     fao_latest = FAODataProcessor().check_fao_updates()
     baci_latest, baci_version = BACIProcessor().check_baci_version()
+
+    wdi_info_list = [
+        p.url_wdi,
+        p.WDI_INPUT_FILE,
+        wdi_latest,
+    ]
+
+    baci_info_list = [
+        p.url_baciHS02,
+        p.BACI_INPUT_FOLDER,
+        baci_latest,
+    ]
+
+    fao_info_list = [
+        p.url_faostat,
+        p.FAO_INPUT_FILE,
+        fao_latest,
+    ]
+
+    fra_info_list = [
+        p.url_fra,
+        p.FRA_INPUT_FILE,
+        "",
+    ]
+
     update_dict={
-        "WDI": wdi_latest,
-        "FAO": fao_latest,
-        "BACI": baci_latest
+        "WDI": wdi_info_list,
+        "FAO": fao_info_list,
+        "FRA": fra_info_list,
+        "BACI": baci_info_list,
     }
     print(update_dict)
-    print(baci_version)
-    
-    # manager = MetadataManager()
 
-    # source = "FRA"
-    # dataset = "FRA 2025"
-    # url = "https://fra-data.fao.org/.../FRA_Years_2025.zip"
-    # local_file = "data/fra.zip"
+    metadata = MetadataManager()
 
-    # # 👉 Schritt 1: Datum vom Server holen
-    # latest_date = "2026-01-30"  # z. B. aus Last-Modified
+    for key, value in update_dict.items():
+        source = key
+        dataset = key
+        url = value[0]
+        local_file = value[1]
 
-    # # 👉 Schritt 2: Prüfen ob Update nötig
-    # if manager.should_update(source, dataset, latest_date):
+        entry = metadata.create_entry(
+            source=source,
+            dataset=dataset,
+            download_url=url,
+            local_file=local_file,
+            dataset_last_update=value[2],
+        )
 
-    #     # 👉 Schritt 3: Download (deine Funktion)
-    #     download_file(url, local_file)
-
-    #     # 👉 Schritt 4: Metadata erstellen
-    #     entry = manager.create_entry(
-    #         source=source,
-    #         dataset=dataset,
-    #         download_url=url,
-    #         local_file=local_file,
-    #         dataset_last_update=latest_date
-    #     )
-
-    #     # 👉 Schritt 5: speichern
-    #     manager.update(entry)
-    #     manager.save()
+        metadata.update(entry)
+        metadata.save()
 
 
 if __name__ == "__main__":

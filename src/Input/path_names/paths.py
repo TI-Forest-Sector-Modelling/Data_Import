@@ -34,4 +34,4 @@ add_info_path = "Input/additional_info"
 output_path = "Output"
 folder_calibration_data = "Calibration_Data"
 
-metadata_path = "data/metadata.json"
+metadata_path = r"src/data/metadata.json"

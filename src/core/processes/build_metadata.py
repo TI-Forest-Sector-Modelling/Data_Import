@@ -3,6 +3,7 @@ import json
 import hashlib
 from datetime import datetime
 from src.Input.path_names.paths import metadata_path
+from pathlib import Path
 
 
 class MetadataManager:
@@ -17,7 +18,8 @@ class MetadataManager:
     """
 
     def __init__(self, path=metadata_path):
-        self.path = path
+        self.path = Path(__file__).parent.parent.parent / path
+        print(self.path)
         self.metadata = self._load()
 
     def _load(self):
@@ -35,7 +37,9 @@ class MetadataManager:
     def save(self):
         """
         Save current metadata dictionary to JSON file.
-        """        
+        """      
+        os.makedirs(os.path.dirname(self.path), exist_ok=True) 
+        print(self.path) 
         with open(self.path, "w") as f:
             json.dump(self.metadata, f, indent=4)
 
@@ -126,4 +130,3 @@ class MetadataManager:
 
         print(f"Metadata updates saved for {key}")
         self.metadata[key] = entry
-        
