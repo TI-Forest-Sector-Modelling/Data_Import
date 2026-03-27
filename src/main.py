@@ -66,66 +66,18 @@ def armington_data():
     qa.main_process()
     pm.end_process()
 
-def check_version():
-    print("Latest update:")
-    wdi_latest = WDIDataProcessor().check_wdi_updates()
-    fao_latest = FAODataProcessor().check_fao_updates()
-    baci_latest, baci_version = BACIProcessor().check_baci_version()
-
-    wdi_info_list = [
-        p.url_wdi,
-        p.WDI_INPUT_FILE,
-        wdi_latest,
-    ]
-
-    baci_info_list = [
-        p.url_baciHS02,
-        p.BACI_INPUT_FOLDER,
-        baci_latest,
-    ]
-
-    fao_info_list = [
-        p.url_faostat,
-        p.FAO_INPUT_FILE,
-        fao_latest,
-    ]
-
-    fra_info_list = [
-        p.url_fra,
-        p.FRA_INPUT_FILE,
-        "",
-    ]
-
-    update_dict={
-        "WDI": wdi_info_list,
-        "FAO": fao_info_list,
-        "FRA": fra_info_list,
-        "BACI": baci_info_list,
-    }
-    print(update_dict)
-
-    metadata = MetadataManager()
-
-    for key, value in update_dict.items():
-        source = key
-        dataset = key
-        url = value[0]
-        local_file = value[1]
-
-        entry = metadata.create_entry(
-            source=source,
-            dataset=dataset,
-            download_url=url,
-            local_file=local_file,
-            dataset_last_update=value[2],
-        )
-
-        metadata.update(entry)
-        metadata.save()
+def check_version_build_metadata():
+    dsd = ProcessManager().build_data_source_dict(
+        wdi_latest=WDIDataProcessor().check_wdi_updates(),
+        fao_latest=FAODataProcessor().check_fao_updates(),
+        baci_latest=BACIProcessor().check_baci_version()[0],
+        baci_version=BACIProcessor().check_baci_version()[1],
+    )
+    MetadataManager().generate_meta_data(data_source_dict=dsd)
 
 
 if __name__ == "__main__":
-    check_version()
+    check_version_build_metadata()
     #data_download()
     #read_fao_data()
     #read_wdi_data()

@@ -130,3 +130,21 @@ class MetadataManager:
 
         print(f"Metadata updates saved for {key}")
         self.metadata[key] = entry
+    
+    def generate_meta_data(self, data_source_dict:dict={}):
+        for key, value in data_source_dict.items():
+            source = key
+            dataset = key
+            url = value[0]
+            local_file = value[1]
+
+            entry = self.create_entry(
+                source=source,
+                dataset=dataset,
+                download_url=url,
+                local_file=local_file,
+                dataset_last_update=value[2],
+            )
+
+            self.update(entry)
+            self.save()

@@ -3,6 +3,7 @@ import numpy as np
 import os
 import time
 from pathlib import Path
+import src.Input.path_names.paths as p
 
 class ProcessManager:
     def __init__(self,commodity_list:list=[]):
@@ -77,6 +78,47 @@ class ProcessManager:
         data.to_parquet(parquet_path, index=False)
         
         print(f"Results saved to: \n - {csv_path}\n - {parquet_path}")
+
+    def build_data_source_dict(
+            self, 
+            wdi_latest:str="", 
+            fao_latest:str="", 
+            fra_latest:str="", 
+            baci_latest:str="", 
+            baci_version:str=""
+        ):
+
+        wdi_info_list = [
+            p.url_wdi,
+            p.WDI_INPUT_FILE,
+            wdi_latest,
+        ]
+
+        baci_info_list = [
+            p.url_baciHS02 + str(baci_version) + ".zip",
+            p.BACI_INPUT_FOLDER,
+            baci_latest,
+        ]
+
+        fao_info_list = [
+            p.url_faostat,
+            p.FAO_INPUT_FILE,
+            fao_latest,
+        ]
+
+        fra_info_list = [
+            p.url_fra,
+            p.FRA_INPUT_FILE,
+            fra_latest,
+        ]
+
+        return {
+            "WDI": wdi_info_list,
+            "FAO": fao_info_list,
+            "FRA": fra_info_list,
+            "BACI": baci_info_list,
+        }
+
 
     def end_process(self):
         if self.start_time is None:
