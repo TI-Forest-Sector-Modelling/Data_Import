@@ -14,6 +14,12 @@ from datetime import datetime
 pm = ProcessManager()
 
 def data_download():
+    """
+    Download data from BACI, WDI, FAOStat, and FRA, and save the extracted files to src/data.
+    Note:
+    Downloading the data, especially from BACI, can take a considerable amount of time (up to about one hour).
+    Data from WDI and FAOStat typically download within a few seconds to a minute.
+    """
     for bulk, url in bulk_dict.items():
         pm.start_process()
         dd = DataDownload(
@@ -23,42 +29,29 @@ def data_download():
         dd.main()
         pm.end_process()
 
-def read_fao_data():
-    pm.start_process()
-    INPUTPATH = Path(__file__).parent  / p.fao_download_path
-    OUTPUTPATH = Path(__file__).parent / p.output_path
-    print(INPUTPATH)
-    print(OUTPUTPATH)
-    fdp = FAODataProcessor(
-        input_path=INPUTPATH, 
-        output_path=OUTPUTPATH
-    )
-    fdp.process()
-    pm.end_process()
-
-def read_wdi_data():
-    pm.start_process()
-    INPUTPATH = Path(__file__).parent  / p.wdi_download_path
-    OUTPUTPATH = Path(__file__).parent / p.output_path
-    wdp = WDIDataProcessor(
-        input_path=INPUTPATH, 
-        output_path=str(OUTPUTPATH)
-    )
-    wdp.main_process()
-    pm.end_process()
 
 def calibration_data():
-    pm.start_process()
-    ADD_INFO_PATH = Path(__file__).parent / p.add_info_path
-    OUTPUTPATH = Path(__file__).parent / p.output_path / p.folder_calibration_data
-    qc = query_calibration_input(
-        output_path=OUTPUTPATH,
-        add_info_path=ADD_INFO_PATH,
-    )
-    qc.main_process()
-    pm.end_process()
+    """
+    Process FAO and WDI data for TiMBA Calibration files.
+    Files can be found at src/Output/Calibration_Data.
+    """
+    processes = [
+        FAODataProcessor().process,
+        WDIDataProcessor().main_process,
+        query_calibration_input().main_process,
+    ]
+
+    for process in processes:
+        pm.start_process()
+        process()
+        pm.end_process()
 
 def armington_data():
+    """
+    Process BACI, FAO and WDI data for files used in bilateral trade analysis.
+    Files can be found at ...
+    (work in progress)
+    """
     pm.start_process()
     qa = query_armington(
         commodity_list=timba_commodity_list
@@ -67,6 +60,10 @@ def armington_data():
     pm.end_process()
 
 def check_version_build_metadata():
+    """
+    Check if a newer version of each data source is available online (except of FRA data).
+    Build Meta data file with the informations about newer versions.
+    """
     dsd = ProcessManager().build_data_source_dict(
         wdi_latest=WDIDataProcessor().check_wdi_updates(),
         fao_latest=FAODataProcessor().check_fao_updates(),
@@ -78,8 +75,6 @@ def check_version_build_metadata():
 
 if __name__ == "__main__":
     check_version_build_metadata()
-    #data_download()
-    #read_fao_data()
-    #read_wdi_data()
-    #calibration_data()
+    data_download()
+    calibration_data()
     #armington_data()

@@ -7,12 +7,16 @@ pm = ProcessManager()
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from src.Input.path_names.paths import url_faostat_update
+from src.Input.path_names.paths import (
+    url_faostat_update,
+    fao_download_path,
+    output_path,
+    )
 
 class FAODataProcessor:
-    def __init__(self, input_path: str="", output_path: str=""):
-        self.input_path = input_path
-        self.output_path = Path(output_path)
+    def __init__(self):
+        self.input_path = fao_download_path
+        self.output_path = output_path
         self.data = None
 
     def check_fao_updates(self):      
@@ -142,8 +146,5 @@ class FAODataProcessor:
 
 
 if __name__ == "__main__":
-    INPUTPATH = r"E:\Data_Official_Reports\FAOStat\Forestry_E_All_Data.csv"
-    OUTPUTPATH = Path(__file__).parent.parent / "Output"
-
-    processor = FAODataProcessor(input_path=INPUTPATH, output_path=str(OUTPUTPATH))
+    processor = FAODataProcessor()
     processor.process()

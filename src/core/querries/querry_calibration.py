@@ -2,11 +2,12 @@ from pathlib import Path
 import pandas as pd
 from src.core.import_data.data_distribution import DataImporter
 from src.Input.Dictionaries.gfpm_input_file_codes import input_codes
+import src.Input.path_names.paths as p
 
 class query_calibration_input:
-    def __init__(self, output_path: Path, add_info_path: Path):
-        self.ADD_INFO_PATH = add_info_path
-        self.output_path = output_path
+    def __init__(self):
+        self.ADD_INFO_PATH = p.add_info_path
+        self.output_path = p.output_path / p.folder_calibration_data
         self.file_list = ["FAO_DATA_as_GFPM_Calibration_Input.parquet",
                           "WDI_DATA_as_vector.parquet"]
 

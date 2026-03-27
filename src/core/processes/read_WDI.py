@@ -6,11 +6,16 @@ from src.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
 import requests
 from datetime import datetime
-from src.Input.path_names.paths import url_wdi_gdp_update,url_wdi_pop_update
+from src.Input.path_names.paths import (
+    url_wdi_gdp_update,
+    url_wdi_pop_update,
+    wdi_download_path,
+    output_path,
+)
 
 class WDIDataProcessor:
-    def __init__(self, input_path: str ="", output_path: str=""):
-        self.input_path = input_path
+    def __init__(self):
+        self.input_path = wdi_download_path
         self.output_path = output_path
 
     def check_wdi_updates(self):

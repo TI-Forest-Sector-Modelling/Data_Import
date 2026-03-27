@@ -1,5 +1,7 @@
 from pathlib import Path
 
+src_path = Path(__file__).parent.parent.parent
+
 BACI_INPUT_FOLDER = r"src/data/baci_hs02_data_bulk/BACI"
 FAO_INPUT_FILE = r"src/data/faostat_data_bulk/Forestry_E_All_Data.csv"
 FRA_INPUT_FILE = r"src/data/fra_data_bulk/FRA_Years_2026-03-25.csv"
@@ -25,13 +27,13 @@ url_fra = (
     "&includeClimaticDomain=undefined"
 )
 
-zip_path = Path("src/data/Zip_Files/")
+zip_path = src_path / r"data/Zip_Files/"
 data_path = "src/data/"
 
-fao_download_path = r"data\faostat_data_bulk\Forestry_E_All_Data.csv"
-wdi_download_path = r"data\wdi_data_bulk\WDICSV.csv"
+fao_download_path = src_path  / r"data\faostat_data_bulk\Forestry_E_All_Data.csv"
+wdi_download_path = src_path  / r"data\wdi_data_bulk\WDICSV.csv"
 add_info_path = "Input/additional_info"
-output_path = "Output"
+output_path = src_path  / r"Output"
 folder_calibration_data = "Calibration_Data"
 
 metadata_path = r"data/metadata.json"
