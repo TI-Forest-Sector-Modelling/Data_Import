@@ -9,27 +9,41 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
+from src.Input.path_names.paths import url_baciHS02_update
 
 class BACIProcessor:
-    def __init__(self, input_path: str, output_path: str, add_info_path:str):
+    def __init__(
+            self, 
+            input_path: str="", 
+            output_path: str="", 
+            add_info_path:str=""
+        ):
         self.input_path = input_path
         self.output_path = output_path
         self.add_info_path = add_info_path
         self.pm = ProcessManager()
 
     def check_baci_version(self):
-        url = "https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37"
-        response = requests.get(url)
+        response = requests.get(url_baciHS02_update)
         soup = BeautifulSoup(response.text, "html.parser")
         text = soup.get_text()
-        match = re.search(r"Last update:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})", text)
+        match_update = re.search(r"Last update:\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})", text)
+        match_version = re.search(r"This is the (\d{6}) version", text)
 
-        if match:
-            date_str = match.group(1)
-            last_update = datetime.strptime(date_str, "%B %d, %Y")
-            print("BACI:", last_update.date())
+        if match_version:
+            version = match_version.group(1)
         else:
+            version = ""
+        
+        if match_update:
+            date_str = match_update.group(1)
+            last_update = datetime.strptime(date_str, "%B %d, %Y")
+            last_update = last_update.strftime("%Y-%m-%d")
+            print("BACI:", last_update)
+        else:
+            last_update = ""
             print("No update date found!")
+        return last_update, version
 
     def read_add_info(self, country_file_name:str="baci_country_codes"):
         country_file= self.add_info_path / f"{country_file_name}.csv"

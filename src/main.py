@@ -8,6 +8,7 @@ from src.core.processes.read_WDI import WDIDataProcessor
 from src.core.processes.read_BACI import BACIProcessor
 from src.Input.path_names.paths import output_path, fao_download_path, wdi_download_path , add_info_path, folder_calibration_data
 from pathlib import Path
+from datetime import datetime
 
 pm = ProcessManager()
 
@@ -65,12 +66,46 @@ def armington_data():
     pm.end_process()
 
 def check_version():
-    wdp = WDIDataProcessor(input_path="",output_path="")
-    wdp.check_wdi_updates()
-    fdp = FAODataProcessor(input_path="",output_path="")
-    fdp.check_fao_updates()
-    bdp = BACIProcessor(input_path="",output_path="",add_info_path="")
-    bdp.check_baci_version()
+    print("Latest update:")
+    wdi_latest = WDIDataProcessor().check_wdi_updates()
+    fao_latest = FAODataProcessor().check_fao_updates()
+    baci_latest, baci_version = BACIProcessor().check_baci_version()
+    update_dict={
+        "WDI": wdi_latest,
+        "FAO": fao_latest,
+        "BACI": baci_latest
+    }
+    print(update_dict)
+    print(baci_version)
+    
+    # manager = MetadataManager()
+
+    # source = "FRA"
+    # dataset = "FRA 2025"
+    # url = "https://fra-data.fao.org/.../FRA_Years_2025.zip"
+    # local_file = "data/fra.zip"
+
+    # # 👉 Schritt 1: Datum vom Server holen
+    # latest_date = "2026-01-30"  # z. B. aus Last-Modified
+
+    # # 👉 Schritt 2: Prüfen ob Update nötig
+    # if manager.should_update(source, dataset, latest_date):
+
+    #     # 👉 Schritt 3: Download (deine Funktion)
+    #     download_file(url, local_file)
+
+    #     # 👉 Schritt 4: Metadata erstellen
+    #     entry = manager.create_entry(
+    #         source=source,
+    #         dataset=dataset,
+    #         download_url=url,
+    #         local_file=local_file,
+    #         dataset_last_update=latest_date
+    #     )
+
+    #     # 👉 Schritt 5: speichern
+    #     manager.update(entry)
+    #     manager.save()
 
 
 if __name__ == "__main__":

@@ -126,3 +126,4 @@ class MetadataManager:
 
         print(f"Metadata updates saved for {key}")
         self.metadata[key] = entry
+        
