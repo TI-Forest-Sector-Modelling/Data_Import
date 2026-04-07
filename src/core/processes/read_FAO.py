@@ -34,85 +34,33 @@ class FAODataProcessor:
         if self.data is None:
             raise ValueError("No data to reformat. Please run `read_original_data` first.")
 
-        print("\nStart reformatting original data to one vector")
-        self.data = self.data.dropna(how="all", axis=1)
+        print("\nStart reformatting original data to long format")
+        data = self.data.dropna(how="all", axis=1)
 
-        col_values = self.data.filter(regex="^Y", axis=1).columns
-        col_info = [col for col in self.data.columns if col not in col_values]
+        value_cols = data.filter(regex="^Y").columns
+        id_vars = [col for col in data.columns if col not in value_cols]
 
-        temp_list_values = []
-        temp_list_year = []
-        temp_list_info = []
+        data_long = data.melt(
+            id_vars=id_vars,
+            value_vars=value_cols,
+            var_name="Year",
+            value_name="Value"
+        )
 
-        for item in tqdm(self.data["Item Code"].unique(), desc="Processing items"):
-            data_item = self.data[self.data["Item Code"] == item]
-            for area in data_item["Area Code"].unique():
-                data_area = data_item[data_item["Area Code"] == area]
-                for element in data_area["Element Code"].unique():
-                    data_element = data_area[data_area["Element Code"] == element]
-                    data_element_info = data_element[col_info]
-                    data_element_values = data_element[col_values]
-                    data_element_transposed = data_element_values.transpose()
+        data_long = data_long.rename(columns={
+            "Area Code": "Area_Code",
+            "Item Code": "Item_Code",
+            "Element Code": "Element_Code"
+        })
 
-                    data_values = data_element_transposed.values.tolist()
-                    data_year = data_element_values.columns.values.tolist()
+        data_long["Flag"] = data_long["Year"].str[-1:]
+        data_long["Year"] = data_long["Year"].str.replace(r"\D", "", regex=True)
 
-                    temp_list_values.extend(data_values)
-                    temp_list_year.extend(data_year)
-
-                    temp_list_info_help = []
-                    for info in data_element_info.values:
-                        temp_list_info_help.extend([info] * len(col_values))
-
-                    temp_list_info.extend(temp_list_info_help)
+        data_long = data_long[~data_long["Flag"].isin(["F", "N"])]
 
         print("Reformatting done")
 
-        print("\nConcatenate reformatted Lists")
-        reformatted_data = pd.concat(
-            [
-                pd.DataFrame(temp_list_info), 
-                pd.DataFrame(temp_list_year), 
-                pd.DataFrame(temp_list_values)
-            ], 
-            axis=1
-        )
-
-        col_names = [
-            "Area_Code",
-            "Area_Code_M49",
-            "Area",
-            "Item_Code",
-            "Item",
-            "Element_Code",
-            "Element",
-            "Unit",
-            "Year",
-            "Value"
-        ]
-        
-        reformatted_data.columns = col_names
-        reformatted_data = reformatted_data[[
-            "Area_Code", 
-            "Area", 
-            "Item_Code", 
-            "Item", 
-            "Element_Code", 
-            "Element", 
-            "Unit", 
-            "Year", 
-            "Value"
-        ]]
-
-        flag_data = pd.DataFrame(reformatted_data[reformatted_data["Year"].str[-1:] == "F"].Value)
-        flag_data.columns = ["Flags"]
-
-        reformatted_data = reformatted_data[reformatted_data["Year"].str[-1:] != "F"]
-        reformatted_data = reformatted_data[reformatted_data["Year"].str[-1:] != "N"]
-
-        self.data = pd.concat([reformatted_data.reset_index(drop=True), flag_data.reset_index(drop=True)], axis=1)
-        self.data["Year"] = self.data["Year"].str.replace("Y", "")
-        print("Concatenation complete")
+        self.data = data_long
 
     def save_reformatted_data(self, file_name: str = "FAO_DATA_as_vector"):
         """Save the reformatted data to the output path."""

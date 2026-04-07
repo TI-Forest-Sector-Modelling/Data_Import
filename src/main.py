@@ -1,6 +1,7 @@
 from src.core.querries.querry_calibration import query_calibration_input
 from src.core.querries.querry_armington import query_armington
-from src.core.import_data.data_download import DataDownload, bulk_dict
+from src.core.import_data.data_download import DataDownload
+from src.Input.Dictionaries.bulk_dict import bulk_dict
 from src.Input.Dictionaries.hscodes import timba_commodity_list
 from src.core.processes.ProcessManager import ProcessManager
 from src.core.processes.read_FAO import FAODataProcessor
@@ -20,7 +21,7 @@ def data_download():
     Downloading the data, especially from BACI, can take a considerable amount of time (up to about one hour).
     Data from WDI and FAOStat typically download within a few seconds to a minute.
     """
-    for bulk, url in bulk_dict.items():
+    for bulk, url in bulk_dict().items():
         pm.start_process()
         dd = DataDownload(
             url=url,
@@ -64,17 +65,18 @@ def check_version_build_metadata():
     Check if a newer version of each data source is available online (except of FRA data).
     Build Meta data file with the informations about newer versions.
     """
+    bp = BACIProcessor().check_baci_version()
     dsd = ProcessManager().build_data_source_dict(
         wdi_latest=WDIDataProcessor().check_wdi_updates(),
         fao_latest=FAODataProcessor().check_fao_updates(),
-        baci_latest=BACIProcessor().check_baci_version()[0],
-        baci_version=BACIProcessor().check_baci_version()[1],
+        baci_latest=bp[0],
+        baci_version=bp[1],
     )
     MetadataManager().generate_meta_data(data_source_dict=dsd)
 
 
 if __name__ == "__main__":
     check_version_build_metadata()
-    data_download()
-    calibration_data()
+    #data_download()
+    #calibration_data()
     #armington_data()

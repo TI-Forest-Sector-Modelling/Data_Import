@@ -3,14 +3,7 @@ import zipfile
 from pathlib import Path
 import shutil
 import src.Input.path_names.paths as paths
-import src.Input.parameters.user_input as bulks
-
-bulk_dict={
-    bulks.wdi_bulk_name:paths.url_wdi,
-    bulks.faostat_bulk_name:paths.url_faostat,
-    bulks.fra_bulk_name:paths.url_fra,
-    #bulks.baci_bulk_name:paths.url_baciHS02,
-}
+from src.Input.Dictionaries.bulk_dict import bulk_dict
 
 class DataDownload:
     def __init__(self, url, bulk_name):
@@ -62,7 +55,7 @@ class DataDownload:
         self.cleanup()
 
 if __name__ == "__main__":
-    for bulk, url in bulk_dict.items():
+    for bulk, url in bulk_dict().items():
         dd = DataDownload(
             url=url,
             bulk_name=bulk

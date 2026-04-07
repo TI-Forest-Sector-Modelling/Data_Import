@@ -19,7 +19,6 @@ class MetadataManager:
 
     def __init__(self, path=metadata_path):
         self.path = Path(__file__).parent.parent.parent / path
-        print(self.path)
         self.metadata = self._load()
 
     def _load(self):
@@ -38,10 +37,10 @@ class MetadataManager:
         """
         Save current metadata dictionary to JSON file.
         """      
-        os.makedirs(os.path.dirname(self.path), exist_ok=True) 
-        print(self.path) 
+        os.makedirs(os.path.dirname(self.path), exist_ok=True)  
         with open(self.path, "w") as f:
             json.dump(self.metadata, f, indent=4)
+        return self.path
 
     def _get_file_hash(self, filepath):
         """
@@ -147,4 +146,5 @@ class MetadataManager:
             )
 
             self.update(entry)
-            self.save()
+            metadata_filepath = self.save()
+        print(f"Metadata saved at: {metadata_filepath}")
