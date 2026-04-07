@@ -3,6 +3,8 @@ import numpy as np
 import os
 import time
 from pathlib import Path
+import json
+from datetime import datetime
 import src.Input.path_names.paths as p
 
 class ProcessManager:
@@ -118,7 +120,31 @@ class ProcessManager:
             "FRA": fra_info_list,
             "BACI": baci_info_list,
         }
+    
+    def call_metadata_json(self):
+        json_path = Path(__file__).parent.parent.parent / p.metadata_path
 
+        if not json_path.exists():
+            print("Metadata file does not exist!")
+            return {}
+        
+        with open(json_path, "r", encoding="utf-8") as f:
+            metadata = json.load(f)
+        return metadata
+    
+    def update_check(self, key):
+        metadata = self.call_metadata_json()[key]
+        downloaded_at = metadata.get("downloaded_at")
+        dataset_last_update = metadata.get("dataset_last_update")
+
+        if not dataset_last_update:
+            print(f"{key} No update information in metadata file!")
+            return False
+
+        downloaded_at = datetime.strptime(downloaded_at, "%Y-%m-%d")
+        dataset_last_update = datetime.strptime(dataset_last_update, "%Y-%m-%d")
+
+        return dataset_last_update > downloaded_at
 
     def end_process(self):
         if self.start_time is None:

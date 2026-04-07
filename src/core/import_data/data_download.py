@@ -3,7 +3,7 @@ import zipfile
 from pathlib import Path
 import shutil
 import src.Input.path_names.paths as paths
-from src.Input.Dictionaries.bulk_dict import bulk_dict
+from src.Input.Dictionaries.dicts import bulk_dict
 
 class DataDownload:
     def __init__(self, url, bulk_name):

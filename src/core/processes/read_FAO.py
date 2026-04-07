@@ -27,7 +27,6 @@ class FAODataProcessor:
             if dataset.find("DatasetCode").text =="FO":
                 latest_update = datetime.fromisoformat(dataset.find("DateUpdate").text)
                 latest_update = latest_update.strftime("%Y-%m-%d")
-                print("FAOStat: ", latest_update)
         return latest_update
 
     def reformat_data(self):

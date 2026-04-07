@@ -2,8 +2,10 @@ import os
 import json
 import hashlib
 from datetime import datetime
-from src.Input.path_names.paths import metadata_path
 from pathlib import Path
+from src.Input.path_names.paths import metadata_path
+from src.Input.Dictionaries.dicts import data_dict
+import src.Input.path_names.paths as p
 
 
 class MetadataManager:
@@ -68,6 +70,7 @@ class MetadataManager:
         dataset,
         download_url,
         local_file=None,
+        download_date=None,
         dataset_last_update=None
         ):
         """
@@ -91,7 +94,7 @@ class MetadataManager:
             "dataset": dataset,
             "download_url": download_url,
             "local_file": local_file,
-            "downloaded_at": datetime.now().isoformat(),
+            "downloaded_at": download_date,
             "dataset_last_update": dataset_last_update,
             "file_size_bytes": file_size,
             "sha256": sha256
@@ -132,19 +135,24 @@ class MetadataManager:
     
     def generate_meta_data(self, data_source_dict:dict={}):
         for key, value in data_source_dict.items():
-            source = key
+            source = data_dict[key]
             dataset = key
             url = value[0]
             local_file = value[1]
+            try:
+                download_date = os.path.getmtime(Path(local_file))
+            except FileNotFoundError:
+                download_date = os.path.getmtime(Path(local_file).parent)
 
             entry = self.create_entry(
                 source=source,
                 dataset=dataset,
                 download_url=url,
                 local_file=local_file,
+                download_date = datetime.fromtimestamp(download_date).strftime("%Y-%m-%d"),
                 dataset_last_update=value[2],
             )
 
             self.update(entry)
             metadata_filepath = self.save()
-        print(f"Metadata saved at: {metadata_filepath}")
+        print(f"Metadata updated at: {metadata_filepath}\n")

@@ -39,7 +39,6 @@ class BACIProcessor:
             date_str = match_update.group(1)
             last_update = datetime.strptime(date_str, "%B %d, %Y")
             last_update = last_update.strftime("%Y-%m-%d")
-            print("BACI:", last_update)
         else:
             last_update = ""
             print("No update date found!")

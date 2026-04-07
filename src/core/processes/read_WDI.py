@@ -27,7 +27,6 @@ class WDIDataProcessor:
         dates_dt = [datetime.strptime(d, "%Y-%m-%d") for d in last_updated_list]
         latest = max(dates_dt)
         latest = latest.strftime("%Y-%m-%d")
-        print("WDI:", latest)
 
         return latest
 
