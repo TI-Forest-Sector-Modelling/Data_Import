@@ -1,13 +1,12 @@
 import pandas as pd
 import numpy as np
 import logging
-from tqdm import tqdm
 from pathlib import Path
-from src.core.processes.ProcessManager import ProcessManager
-from src.core.processes.read_BACI import BACIProcessor
-from src.core.processes.read_FAO import FAODataProcessor
-from src.core.processes.read_WDI import WDIDataProcessor
-from src.Input.path_names.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE, add_info_path
+from FSMDataImport.core.processes.ProcessManager import ProcessManager
+from FSMDataImport.core.processes.read_BACI import BACIProcessor
+from FSMDataImport.core.processes.read_FAO import FAODataProcessor
+from FSMDataImport.core.processes.read_WDI import WDIDataProcessor
+from FSMDataImport.Input.path_names.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE, add_info_path
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -74,7 +73,7 @@ class DataProcessor:
         Run all data processing steps sequentially with progress tracking.
         """
         func_list = [self.read_BACI_data, self.read_FAO_data, self.read_WDI_data]
-        for func in tqdm(func_list, desc="Processing datasets"):
+        for func in func_list:
             self.process(func)
 
 if __name__ == "__main__":

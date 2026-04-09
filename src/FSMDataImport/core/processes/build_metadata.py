@@ -3,9 +3,9 @@ import json
 import hashlib
 from datetime import datetime
 from pathlib import Path
-from src.Input.path_names.paths import metadata_path
-from src.Input.Dictionaries.dicts import data_dict
-import src.Input.path_names.paths as p
+from FSMDataImport.Input.path_names.paths import metadata_path
+from FSMDataImport.Input.Dictionaries.dicts import data_dict
+import FSMDataImport.Input.path_names.paths as p
 
 
 class MetadataManager:
@@ -139,6 +139,7 @@ class MetadataManager:
             dataset = key
             url = value[0]
             local_file = value[1]
+            print(f"Check {key} data at: {local_file}")
             try:
                 download_date = os.path.getmtime(Path(local_file))
             except FileNotFoundError:
@@ -148,11 +149,11 @@ class MetadataManager:
                 source=source,
                 dataset=dataset,
                 download_url=url,
-                local_file=local_file,
+                local_file=str(local_file),
                 download_date = datetime.fromtimestamp(download_date).strftime("%Y-%m-%d"),
                 dataset_last_update=value[2],
             )
 
             self.update(entry)
-            metadata_filepath = self.save()
+        metadata_filepath = self.save()
         print(f"Metadata updated at: {metadata_filepath}\n")

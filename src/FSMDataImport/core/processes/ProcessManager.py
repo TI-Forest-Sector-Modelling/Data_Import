@@ -5,7 +5,7 @@ import time
 from pathlib import Path
 import json
 from datetime import datetime
-import src.Input.path_names.paths as p
+import FSMDataImport.Input.path_names.paths as p
 
 class ProcessManager:
     def __init__(self,commodity_list:list=[]):

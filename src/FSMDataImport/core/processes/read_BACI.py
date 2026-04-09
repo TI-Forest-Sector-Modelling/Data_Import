@@ -1,15 +1,14 @@
 import pandas as pd
 import numpy as np
 import os
-from tqdm import tqdm
 from pathlib import Path
-from src.core.processes.ProcessManager import ProcessManager
-from src.Input.Dictionaries.hscodes import commodity_list
+from FSMDataImport.core.processes.ProcessManager import ProcessManager
+from FSMDataImport.Input.Dictionaries.hscodes import commodity_list
 import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
-from src.Input.path_names.paths import url_baciHS02_update
+from FSMDataImport.Input.path_names.paths import url_baciHS02_update
 
 class BACIProcessor:
     def __init__(

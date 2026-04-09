@@ -1,13 +1,10 @@
-import pandas as pd
-from tqdm import tqdm
-from pathlib import Path
 import os
-from src.core.processes.ProcessManager import ProcessManager
+from FSMDataImport.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from src.Input.path_names.paths import (
+from FSMDataImport.Input.path_names.paths import (
     url_faostat_update,
     fao_download_path,
     output_path,

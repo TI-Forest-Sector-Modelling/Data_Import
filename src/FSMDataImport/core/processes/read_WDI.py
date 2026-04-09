@@ -1,12 +1,10 @@
 import pandas as pd
-import numpy as np
-from tqdm import tqdm
 from pathlib import Path
-from src.core.processes.ProcessManager import ProcessManager
+from FSMDataImport.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
 import requests
 from datetime import datetime
-from src.Input.path_names.paths import (
+from FSMDataImport.Input.path_names.paths import (
     url_wdi_gdp_update,
     url_wdi_pop_update,
     wdi_download_path,
@@ -47,7 +45,7 @@ class WDIDataProcessor:
         temp_list_year = []
         temp_list_info = []
 
-        for indicator in tqdm(data.Indicator_Code.unique(), desc="Processing Indicators"):
+        for indicator in data.Indicator_Code.unique():
             data_indicator = data[data.Indicator_Code == indicator]
             for country in data_indicator.Country_Code.unique():
                 data_country = data_indicator[data_indicator.Country_Code == country]

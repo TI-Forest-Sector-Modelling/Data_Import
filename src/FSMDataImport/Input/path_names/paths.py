@@ -2,10 +2,10 @@ from pathlib import Path
 
 src_path = Path(__file__).parent.parent.parent
 
-BACI_INPUT_FOLDER = r"src/data/baci_hs02_data_bulk/BACI"
-FAO_INPUT_FILE = r"src/data/faostat_data_bulk/Forestry_E_All_Data.csv"
-FRA_INPUT_FILE = r"src/data/fra_data_bulk/FRA_Years_2026-03-25.csv"
-WDI_INPUT_FILE = r"src/data/wdi_data_bulk/WDICSV.csv"
+BACI_INPUT_FOLDER = src_path / r"data/baci_hs02_data_bulk/BACI"
+FAO_INPUT_FILE = src_path / r"data/faostat_data_bulk/Forestry_E_All_Data.csv"
+FRA_INPUT_FILE = src_path / r"data/fra_data_bulk/FRA_Years_2026-03-25.csv"
+WDI_INPUT_FILE = src_path / r"data/wdi_data_bulk/WDICSV.csv"
 
 url_wdi = "https://databank.worldbank.org/data/download/WDI_CSV.zip"
 url_wdi_gdp_update = "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json"
@@ -28,7 +28,7 @@ url_fra = (
 )
 
 zip_path = src_path / r"data/Zip_Files/"
-data_path = "src/data/"
+data_path = "FSMDataImport/data/"
 
 fao_download_path = src_path  / r"data\faostat_data_bulk\Forestry_E_All_Data.csv"
 wdi_download_path = src_path  / r"data\wdi_data_bulk\WDICSV.csv"
