@@ -1,10 +1,10 @@
 import pandas as pd
 from pathlib import Path
-from FSMDataImport.core.processes.ProcessManager import ProcessManager
+from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
 import requests
 from datetime import datetime
-from FSMDataImport.Input.path_names.paths import (
+from ForestSectorDataImport.Input.path_names.paths import (
     url_wdi_gdp_update,
     url_wdi_pop_update,
     wdi_download_path,

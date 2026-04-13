@@ -2,8 +2,8 @@ import requests
 import zipfile
 from pathlib import Path
 import shutil
-import FSMDataImport.Input.path_names.paths as paths
-from FSMDataImport.Input.Dictionaries.dicts import bulk_dict
+import ForestSectorDataImport.Input.path_names.paths as paths
+from ForestSectorDataImport.Input.Dictionaries.dicts import bulk_dict
 
 class DataDownload:
     def __init__(self, url, bulk_name):

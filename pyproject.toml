@@ -3,7 +3,7 @@ requires = ["setuptools==75.2.0", "wheel", "twine"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "FSM_DataImport" 
+name = "ForestSectorDataImport" 
 version = "0.0.0"
 authors = [{name = "Christian Morland", email = "christian.morland@thuenen.de"}]
 description = "Data importer for FAO forestry statistics, Global FOrest Recource Assessment, WDI and BACI data."
@@ -44,7 +44,7 @@ Repository = "https://github.com/TI-Forest-Sector-Modelling/TiMBA"
 Issues = "https://github.com/TI-Forest-Sector-Modelling/TiMBA/issues"
 
 [project.scripts]
-update_check = "FSMDataImport.cli.cli:update_check_cli"
+fsdi = "FSMDataImport.cli.cli:cli"
 
 [tool.setuptools]
 license-files = ["COPYING"]

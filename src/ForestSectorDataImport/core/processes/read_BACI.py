@@ -2,13 +2,13 @@ import pandas as pd
 import numpy as np
 import os
 from pathlib import Path
-from FSMDataImport.core.processes.ProcessManager import ProcessManager
-from FSMDataImport.Input.Dictionaries.hscodes import commodity_list
+from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
+from ForestSectorDataImport.Input.Dictionaries.hscodes import commodity_list
 import requests
 from bs4 import BeautifulSoup
 import re
 from datetime import datetime
-from FSMDataImport.Input.path_names.paths import url_baciHS02_update
+from ForestSectorDataImport.Input.path_names.paths import url_baciHS02_update
 
 class BACIProcessor:
     def __init__(

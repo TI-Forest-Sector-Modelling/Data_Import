@@ -3,9 +3,9 @@ import json
 import hashlib
 from datetime import datetime
 from pathlib import Path
-from FSMDataImport.Input.path_names.paths import metadata_path
-from FSMDataImport.Input.Dictionaries.dicts import data_dict
-import FSMDataImport.Input.path_names.paths as p
+from ForestSectorDataImport.Input.path_names.paths import metadata_path
+from ForestSectorDataImport.Input.Dictionaries.dicts import data_dict
+import ForestSectorDataImport.Input.path_names.paths as p
 
 
 class MetadataManager:

@@ -2,11 +2,11 @@ import pandas as pd
 import numpy as np
 import logging
 from pathlib import Path
-from FSMDataImport.core.processes.ProcessManager import ProcessManager
-from FSMDataImport.core.processes.read_BACI import BACIProcessor
-from FSMDataImport.core.processes.read_FAO import FAODataProcessor
-from FSMDataImport.core.processes.read_WDI import WDIDataProcessor
-from FSMDataImport.Input.path_names.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE, add_info_path
+from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
+from ForestSectorDataImport.core.processes.read_BACI import BACIProcessor
+from ForestSectorDataImport.core.processes.read_FAO import FAODataProcessor
+from ForestSectorDataImport.core.processes.read_WDI import WDIDataProcessor
+from ForestSectorDataImport.Input.path_names.paths import BACI_INPUT_FOLDER, FAO_INPUT_FILE, WDI_INPUT_FILE, add_info_path
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 

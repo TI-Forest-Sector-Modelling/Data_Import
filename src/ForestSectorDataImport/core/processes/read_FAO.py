@@ -1,10 +1,10 @@
 import os
-from FSMDataImport.core.processes.ProcessManager import ProcessManager
+from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
 pm = ProcessManager()
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from FSMDataImport.Input.path_names.paths import (
+from ForestSectorDataImport.Input.path_names.paths import (
     url_faostat_update,
     fao_download_path,
     output_path,

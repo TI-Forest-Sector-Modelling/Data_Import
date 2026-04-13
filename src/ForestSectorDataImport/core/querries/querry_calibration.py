@@ -1,8 +1,8 @@
 from pathlib import Path
 import pandas as pd
-from FSMDataImport.core.import_data.data_distribution import DataImporter
-from FSMDataImport.Input.Dictionaries.gfpm_input_file_codes import input_codes
-import FSMDataImport.Input.path_names.paths as p
+from ForestSectorDataImport.core.import_data.data_distribution import DataImporter
+from ForestSectorDataImport.Input.Dictionaries.gfpm_input_file_codes import input_codes
+import ForestSectorDataImport.Input.path_names.paths as p
 
 class query_calibration_input:
     def __init__(self):

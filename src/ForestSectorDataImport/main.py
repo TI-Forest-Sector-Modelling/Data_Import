@@ -1,14 +1,14 @@
-from FSMDataImport.core.querries.querry_calibration import query_calibration_input
-from FSMDataImport.core.querries.querry_armington import query_armington
-from FSMDataImport.core.import_data.data_download import DataDownload
-from FSMDataImport.Input.Dictionaries.dicts import bulk_dict
-from FSMDataImport.Input.Dictionaries.hscodes import timba_commodity_list
-from FSMDataImport.core.processes.ProcessManager import ProcessManager
-from FSMDataImport.core.processes.read_FAO import FAODataProcessor
-from FSMDataImport.core.processes.read_WDI import WDIDataProcessor
-from FSMDataImport.core.processes.read_BACI import BACIProcessor
-import FSMDataImport.Input.path_names.paths as p
-from FSMDataImport.core.processes.build_metadata import MetadataManager
+from ForestSectorDataImport.core.querries.querry_calibration import query_calibration_input
+from ForestSectorDataImport.core.querries.querry_armington import query_armington
+from ForestSectorDataImport.core.import_data.data_download import DataDownload
+from ForestSectorDataImport.Input.Dictionaries.dicts import bulk_dict
+from ForestSectorDataImport.Input.Dictionaries.hscodes import timba_commodity_list
+from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
+from ForestSectorDataImport.core.processes.read_FAO import FAODataProcessor
+from ForestSectorDataImport.core.processes.read_WDI import WDIDataProcessor
+from ForestSectorDataImport.core.processes.read_BACI import BACIProcessor
+import ForestSectorDataImport.Input.path_names.paths as p
+from ForestSectorDataImport.core.processes.build_metadata import MetadataManager
 
 pm = ProcessManager()
 

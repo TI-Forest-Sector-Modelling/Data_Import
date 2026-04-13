@@ -1,6 +1,6 @@
-import FSMDataImport.Input.path_names.paths as paths
-import FSMDataImport.Input.parameters.user_input as bulks
-from FSMDataImport.core.processes.ProcessManager import ProcessManager
+import ForestSectorDataImport.Input.path_names.paths as paths
+import ForestSectorDataImport.Input.parameters.user_input as bulks
+from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
 
 def bulk_dict():
     metadata = ProcessManager().call_metadata_json()
