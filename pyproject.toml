@@ -44,7 +44,7 @@ Repository = "https://github.com/TI-Forest-Sector-Modelling/TiMBA"
 Issues = "https://github.com/TI-Forest-Sector-Modelling/TiMBA/issues"
 
 [project.scripts]
-fsdi = "FSMDataImport.cli.cli:cli"
+fsdi = "ForestSectorDataImport.cli.cli:cli"
 
 [tool.setuptools]
 license-files = ["COPYING"]

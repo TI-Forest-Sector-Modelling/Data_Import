@@ -1,6 +1,8 @@
 import click
 import ForestSectorDataImport.main as main 
 
+
+@click.group()
 def cli():
     """FSM Data Import CLI"""
     pass
@@ -10,7 +12,7 @@ def update_check_cli():
     main.check_version_build_metadata()
 
 #start download and formatiation for calibration input
-@click.command("calibration")
+@cli.command("calibration")
 def load_data_cli():
     main.calibration_data()
 
