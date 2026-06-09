@@ -2,7 +2,7 @@ from ForestSectorDataImport.core.querries.querry_calibration import query_calibr
 from ForestSectorDataImport.core.querries.querry_armington import query_armington
 from ForestSectorDataImport.core.import_data.data_download import DataDownload
 from ForestSectorDataImport.Input.Dictionaries.dicts import bulk_dict
-from ForestSectorDataImport.Input.Dictionaries.hscodes import timba_commodity_list
+import ForestSectorDataImport.Input.Dictionaries.hscodes as codes #timba_commodity_list
 from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
 from ForestSectorDataImport.core.processes.read_FAO import FAODataProcessor
 from ForestSectorDataImport.core.processes.read_WDI import WDIDataProcessor
@@ -53,7 +53,7 @@ def armington_data():
     """
     pm.start_process()
     qa = query_armington(
-        commodity_list=timba_commodity_list
+        commodity_list=codes.aggregated_commodity_list
     )
     qa.main_process()
     pm.end_process()
@@ -82,7 +82,7 @@ def check_version_build_metadata():
 
 
 if __name__ == "__main__":
-    check_version_build_metadata()
+    #check_version_build_metadata()
     #data_download()
     #calibration_data()
-    #armington_data()
+    armington_data()

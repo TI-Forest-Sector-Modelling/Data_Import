@@ -2,7 +2,7 @@ from pathlib import Path
 
 src_path = Path(__file__).parent.parent.parent
 
-BACI_INPUT_FOLDER = src_path / r"data/baci_hs02_data_bulk/BACI"
+BACI_INPUT_FOLDER = src_path / r"data/baci_hs02_data_bulk"
 FAO_INPUT_FILE = src_path / r"data/faostat_data_bulk/Forestry_E_All_Data.csv"
 FRA_INPUT_FILE = src_path / r"data/fra_data_bulk/FRA_Years_2026-03-25.csv"
 WDI_INPUT_FILE = src_path / r"data/wdi_data_bulk/WDICSV.csv"
@@ -32,7 +32,7 @@ data_path = "FSMDataImport/data/"
 
 fao_download_path = src_path  / r"data\faostat_data_bulk\Forestry_E_All_Data.csv"
 wdi_download_path = src_path  / r"data\wdi_data_bulk\WDICSV.csv"
-add_info_path = "Input/additional_info"
+add_info_path = src_path  / r"Input/additional_info"
 output_path = src_path  / r"Output"
 folder_calibration_data = "Calibration_Data"
 

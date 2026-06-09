@@ -23,12 +23,7 @@ class DataProcessor:
         Process BACI trade data and save results.
         """
         logging.info("Begin processing BACI data...")
-        add_info_path = Path(__file__).parent.parent / add_info_path
-        processor = BACIProcessor(
-            input_path=self.baci_input_folder, 
-            output_path=self.output_path, 
-            add_info_path=add_info_path
-        )
+        processor = BACIProcessor()
         processor.process_data()
 
     def read_FAO_data(self):

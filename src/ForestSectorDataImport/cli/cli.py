@@ -16,9 +16,14 @@ def update_check_cli():
 def load_data_cli():
     main.calibration_data()
 
+@cli.command("armington")
+def armington_cli():
+    main.armington_data()
+
 # cli.add_command(update_check_cli, name="timba")
 # cli.add_command(load_data_cli, name="load_data")
+# cli.add_command(armington_cli, name="armington_cli")
 
-# if __name__ == "__main__":
-#     update_check_cli()
+if __name__ == "__main__":
+    cli()
 

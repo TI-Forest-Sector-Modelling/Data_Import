@@ -2,14 +2,14 @@ from pathlib import Path
 import pandas as pd
 from ForestSectorDataImport.core.import_data.data_distribution import DataImporter
 from ForestSectorDataImport.Input.Dictionaries.fao_codes import element_dict
-from ForestSectorDataImport.Input.Dictionaries.hscodes import commodity_list, aggregated_commodity_list, timba_commodity_list
-from ForestSectorDataImport.Input.path_names.paths import output_path, add_info_path
+import ForestSectorDataImport.Input.Dictionaries.hscodes as codes# commodity_list, aggregated_commodity_list, timba_commodity_list
+import ForestSectorDataImport.Input.path_names.paths as p# output_path, add_info_path
 from ForestSectorDataImport.core.processes.ProcessManager import ProcessManager
 
 class query_armington:
     def __init__(self, commodity_list:list):
         self.pm = ProcessManager(commodity_list=commodity_list)
-        self.ADD_INFO_PATH = Path(__file__).parent.parent / add_info_path
+        self.ADD_INFO_PATH = p.add_info_path
         self.file_list = [
             "BACI_DATA_as_vector.parquet",
             "FAO_DATA_as_vector.parquet",
@@ -73,37 +73,36 @@ class query_armington:
         return fao_data.reset_index().fillna(0)
 
     def process_baci_data(
-            self, 
-            baci_data, 
+            self,
+            baci_data,
             hs_to_fao_code_dict
-            ):
+    ):
         """
-        Clean and aggregate BACI trade data:
-        - Map HS to FAO codes
-        - Filter relevant codes
-        - Aggregate trade flows
-        
-        Returns:
-            pd.DataFrame: Aggregated BACI dataset.
+        Keep original HS codes and add mapped FAO code as extra column.
         """
-             
-        baci_data = baci_data.reset_index(drop=True)
-        baci_data = self.pm.replace_column_data_with_dict(
-            data=baci_data, 
-            mapping_dict=hs_to_fao_code_dict, 
-            column_name="HSCode"
-        )
 
-        baci_data = baci_data[baci_data["HSCode"] <= 2000].reset_index(drop=True)
+        baci_data = baci_data.reset_index(drop=True)
+
+        # neue Spalte statt Überschreiben
+        baci_data["FAOCode"] = baci_data["HSCode"].map(hs_to_fao_code_dict)
+
+        # nur gemappte behalten
+        baci_data = baci_data.dropna(subset=["FAOCode"]).reset_index(drop=True)
+
+        # optional int
+        baci_data["FAOCode"] = baci_data["FAOCode"].astype(int)
+
         aggregated_baci_data = baci_data.groupby(
             [
-                'Year', 
-                'Reporter_Code', 
-                'Partner_Code', 
-                'HSCode'
-            ], 
-            as_index=False).sum()
-        
+                'Year',
+                'Reporter_Code',
+                'Partner_Code',
+                'HSCode',      # original bleibt
+                'FAOCode'      # zusätzlicher Schlüssel
+            ],
+            as_index=False
+        ).sum()
+
         return aggregated_baci_data
 
     def merge_data(
@@ -119,9 +118,9 @@ class query_armington:
         """  
         
         armington_data = pd.merge(
-            aggregated_baci_data, 
+            aggregated_baci_data,
             processed_fao_data,
-            left_on=['Year', 'Partner_Code', 'HSCode'],
+            left_on=['Year', 'Partner_Code', 'FAOCode'],
             right_on=['Year', 'Area_Code', 'Item_Code'],
             how='left'
         )
@@ -166,29 +165,20 @@ class query_armington:
             processed_fao_data
         )
 
-        armington_data.columns =[
-            'Year', 
-            'Partner_Code', 
-            'Reporter_Code', 
-            'HSCode', 
-            'Value', 
-            'Quantity',
-            'Export_Quantity', 
-            'Export_Value', 
-            'Import_Quantity', 
-            'Import_Value',
-            'Production'
-        ]
+        armington_data = armington_data.rename(columns={
+            "FAOCode": "FAO_Code"
+        })
 
-        OUTPUT_PATH = Path(__file__).parent.parent / output_path
+        print(armington_data)
+
         self.pm.save_result(
-            path=OUTPUT_PATH, 
+            path=p.output_path, 
             data=armington_data,
             file_name="armington_data"
         )
 
 if __name__ == "__main__":
     qa = query_armington(
-        commodity_list=timba_commodity_list
+        commodity_list=codes.aggregated_commodity_list
     )
     qa.main_process()

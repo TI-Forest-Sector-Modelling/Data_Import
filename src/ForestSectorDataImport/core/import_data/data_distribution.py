@@ -1,11 +1,12 @@
 import pandas as pd
 from pathlib import Path
 from ForestSectorDataImport.core.import_data.import_data import DataProcessor
+import ForestSectorDataImport.Input.path_names.paths as p
 
 class DataImporter:
-    def __init__(self, file_list:list, output_folder=None):
+    def __init__(self, file_list:list):
         self.file_list = file_list
-        self.output_folder = output_folder
+        self.output_folder = p.output_path
 
     def import_data(self, file_name):
         print(self.output_folder)
